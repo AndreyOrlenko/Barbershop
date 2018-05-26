@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Barbershop BORODINSKI</title>
+  <link rel="stylesheet" href="#">
+</head>
+<body>
+
+//= template/catalog-header.html
+
+<main>
+
+  <h1 class="large-title">Средства для ухода</h1>
+  <ul class="bradecrumbs">
+    <li>
+      <a class="list-item" href="#">Главная</a>
+    </li>
+    <li>
+      <a class="list-item" href="#">Магазин</a>
+    </li>
+    <li class="list-item list-item--current">
+      Средства для ухода
+    </li>
+  </ul>
+
+  <section class="filter">
+    <h2 class="g-hidden">Фильтер товаров</h2>
+    <form class="filter-form" action="#" method="get">
+      <fildset class="filter-group">
+        <legend class="middle-title">Производители</legend>
+        <ul>
+          <li>
+            <p>
+              <input class="g-hidden" type="checkbox" name="baxter" id="baxter">
+              <label class="form-input__label form-input__label--checkbox" for="baxter">
+                Baxter of California
+              </label>
+            </p>
+          </li>
+          <li>
+            <p>
+              <input class="g-hidden" type="checkbox" name="mrnatty" id="mrnatty">
+              <label class="form-input__label form-input__label--checkbox" for="mrnatty">
+                Mr Natty
+              </label>
+            </p>
+          </li>
+          <li>
+            <p>
+              <input class="g-hidden" type="checkbox" name="suavecito" id="suavecito">
+              <label class="form-input__label form-input__label--checkbox" for="suavecito">
+                Suavecito
+              </label>
+            </p>
+          </li>
+          <li>
+            <p>
+              <input class="g-hidden" type="checkbox" name="malin+goetz" id="malin+goetz">
+              <label class="form-input__label form-input__label--checkbox" for="malin+goetz">
+                Malin+Goetz
+              </label>
+            </p>
+          </li>
+          <li>
+            <p>
+              <input class="g-hidden" type="checkbox" name="murrays" id="murrays">
+              <label class="form-input__label form-input__label--checkbox" for="murrays">
+                Murray’s
+              </label>
+            </p>
+          </li>
+          <li>
+            <p>
+              <input class="g-hidden" type="checkbox" name="americancrew" id="americancrew">
+              <label class="form-input__label form-input__label--checkbox" for="americancrew">
+                American Crew
+              </label>
+            </p>
+          </li>
+        </ul>
+      </fildset>
+
+
+      <fildset class="filter-group">
+        <legend class="middle-title">Группы товаров</legend>
+        <p>
+          <input class="g-hidden" type="radio" name="shavingaccessories" id="shavingaccessories">
+          <label class="form-input__label form-input__label--radio" for="shavingaccessories">
+            Бритвенные
+            принадлежности
+          </label>
+        </p>
+        <p>
+          <input class="g-hidden" type="radio" name="careproducts" id="careproducts">
+          <label class="form-input__label form-input__label--radio" for="careproducts">
+            Средства для ухода
+          </label>
+        </p>
+        <p>
+          <input class="g-hidden" type="radio" name="accessories" id="accessories">
+          <label class="form-input__label form-input__label--radio" for="accessories">
+            Аксессуары
+          </label>
+        </p>
+
+      </fildset>
+
+      <button class="btn filter-form__btn" type="submit">Показать</button>
+    </form>
+  </section>
+
+  <section class="catalog-products">
+    <h2 class="g-hidden">Каталог товаров</h2>
+    <ul class="catalog-list">
+      <li class="product-card">
+        <a href="product.html">
+          <h3>
+            <span>Набор для путешествий</span>
+            <span>«Baxter of California»</span>
+          </h3>
+        </a>
+        <p>
+          <a class="product-photo" href="product.html">
+            <img src="#" alt="Фотография набора">
+          </a>
+        </p>
+        <p>
+          <b>2900</b>
+          <a href="product.html">Купить</a>
+        </p>
+      </li>
+      <li class="product-card">
+        <a href="product.html">
+          <h3>
+            <span>Увлажняющий кондиционер</span>
+            <span>«Baxter of California»</span>
+          </h3>
+        </a>
+        <p>
+          <a class="product-photo" href="product.html">
+            <img src="#" alt="Фотография бутылки с кондиционером">
+          </a>
+        </p>
+        <p>
+          <b>750</b>
+          <a href="product.html">Купить</a>
+        </p>
+      </li>
+      <li class="product-card">
+        <a href="product.html">
+          <h3>
+            <span>Гель для волос</span>
+            <span>«Suavecito»</span>
+
+          </h3>
+        </a>
+        <p>
+          <a class="product-photo" href="product.html">
+            <img src="#" alt="Фотография баночки с гелем">
+          </a>
+        </p>
+        <p>
+          <b>290</b>
+          <a href="product.html">Купить</a>
+        </p>
+      </li>
+      <li class="product-card">
+        <a href="product.html">
+          <h3>
+            <span>Глина для укладки волос</span>
+            <span>«American crew»</span>
+          </h3>
+        </a>
+        <p>
+          <a class="product-photo" href="product.html">
+            <img src="#" alt="Фотография баночки с глиной">
+          </a>
+        </p>
+        <p>
+          <b>500</b>
+          <a href="product.html">Купить</a>
+        </p>
+      </li>
+      <li class="product-card">
+        <a href="product.html">
+          <h3>
+            <span>Гель для волос</span>
+            <span>«American crew»</span>
+          </h3>
+        </a>
+        <p>
+          <a href="product.html">
+            <img src="#" alt="Фотография тюбика с гелем">
+          </a>
+        </p>
+        <p>
+          <b>300</b>
+          <a href="product.html">Купить</a>
+        </p>
+      </li>
+      <li class="product-card">
+        <a href="product.html">
+          <h3>
+            <span>Набор для бритья</span>
+            <span>«Baxter of California»</span>
+          </h3>
+        </a>
+        <p>
+          <a class="product-photo" href="product.html">
+            <img src="#" alt="Бритвенный набор">
+          </a>
+        </p>
+        <p>
+          <b>3900</b>
+          <a href="product.html">Купить</a>
+        </p>
+      </li>
+    </ul>
+
+    <ul class="pagination">
+      <li class="btn">
+        <a href="#">1</a>
+      </li>
+      <li lass="btn btn--current">
+        2
+      </li>
+      <li class="btn">
+        <a href="#">3</a>
+      </li>
+      <li class="btn">
+        <a href="#">4</a>
+      </li>
+    </ul>
+  </section>
+</main>
+
+//= template/main-footer.html
+
+//= template/modal-login.html
+
+//= template/modal-map.html
+
+
+<script src="#"></script>
+</body>
+</html>
