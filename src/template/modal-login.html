@@ -3,10 +3,16 @@
   <p>Введите пожалуйста свой логин и пароль</p>
   <form class="login-form" action="#" method="post">
     <p>
+      <label class="g-hidden">
+        Логин
       <input class="form-input form-input--login" type="text" name="login" placeholder="Логин">
+      </label>
     </p>
     <p>
+      <label class="g-hidden">
+        Пароль
       <input class="form-input form-input--pass" type="password" name="pass" placeholder="Пароль">
+      </label>
     </p>
     <p>
       <input class="g-hidden" type="checkbox" name="remember-me" id="remember-me">
@@ -15,6 +21,6 @@
       <a class="forgot-password" href="#">Я забыл пароль!</a>
     </p>
     <button class="btn login-form__btn" type="submit">Войти</button>
-    <span class="modal__close"></span>
+    <button class="modal__close">Закрыть</button>
   </form>
 </section>

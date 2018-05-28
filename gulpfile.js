@@ -23,6 +23,7 @@ const rigger      = require('gulp-rigger'); // можно импортирова
 const rename      = require('gulp-rename'); // изменяет имя файла .pipe(rename('vendor.min.js`))
 const cached      = require('gulp-cached'); // пропускает через себя файлы и файлы с одним и тем же именем и содержимым не пропускает
 const autoprefix  = require('gulp-autoprefixer'); // добавляет префиксы
+const svgo       = require('gulp-svgo');// Сжимает svg файлы
 const newer       = require('gulp-newer');// сравнивает поступающие файлы с файлами в конечной директории
 const If          = require('gulp-if');
 /* IF - пропускает файлы через поток в зависимости от тех или иных условий
@@ -298,6 +299,7 @@ gulp.task('png:sprite', function () {
 //--------------------------------svg-sprite-------------------------------------------
 gulp.task('svg:sprite', function () {
   return gulp.src(path.src.imgSpriteSVG)
+      .pipe(svgo())
       .pipe(svgSprite({
         mode: {
           css: {
