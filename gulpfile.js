@@ -14,7 +14,9 @@ const browserSync = require('browser-sync'); // обновляет страни�
 const cssMin      = require('gulp-minify-css'); //  Минимизирует css файлы
 const spritesmith = require('gulp.spritesmith'); //Создает png спрайты
 const paths       = require('path'); // пути
+const csso        = require('gulp-csso');
 const replaceUrl  = require('gulp-css-replace-url'); // Замена url путей в css файлах
+const cssUrls      = require('gulp-css-urls');
 const svgSprite   = require('gulp-svg-sprite'); // создание svg спрайтов
 const combiner    = require('stream-combiner2').obj; // нужен для обработки ошибок в тасках
 const filter      = require('gulp-filter'); // Пропускает через себя только определенные файлы
@@ -140,12 +142,23 @@ gulp.task('less:build', function () {
         browsers: ['last 16 versions'],
         cascade: false
       }),
-      debug({title: 'auto'}),
-      If(isDevelopment, sourcemaps.write()),
-      If(!isDevelopment, cssMin()), //сжимает css файлы, на prodiction
-      replaceUrl({
-        prependRelative: '../img/', //изменяет путь для url background в css
+      debug({title: 'less'}),
+      // изменяем пути для background
+      cssUrls(function (url) {
+        return '../img/' + paths.basename(url)
+      }, {
+        sourcemaps: false,
       }),
+
+      If(isDevelopment, sourcemaps.write()),
+      If(!isDevelopment, csso({
+        restructure: true,
+        sourceMap: false,
+        debug: false
+      })), //сжимает css файлы, на prodiction
+      // replaceUrl({
+      //   prependRelative: '../img/', //изменяет путь для url background в css
+      // }),
       cached('less'),
       debug({title: 'cached'}),
       gulp.dest(path.build.css),
@@ -161,7 +174,11 @@ gulp.task('less:build', function () {
 gulp.task('css:build', function () {
   return combiner(
       gulp.src(path.src.css),
-      If(!isDevelopment, cssMin()), //сжимает css файлы, на prodiction
+      If(!isDevelopment, csso({
+        restructure: true,
+        sourceMap: false,
+        debug: false
+      })), //сжимает css файлы, на prodiction
       cached('css'),
       debug({title: 'cached'}),
       gulp.dest(path.build.css),
