@@ -9,7 +9,26 @@
 </head>
 <body>
 
-//= template/catalog-header.html
+<header class="main-header">
+  <nav class="main-navigation">
+    <a class="main-logo" href="index.html">
+      <img src="img/index-logo.svg" alt="Логотип Барбершопа Бородинский">
+    </a>
+    <ul class="site-navigation">
+      <li><a class="site-navigation__item" href="#">Информация</a></li>
+      <li><a class="site-navigation__item" href="#">Новости</a></li>
+      <li><a class="site-navigation__item" href="#">Прайс-лист</a></li>
+      <li><a class="site-navigation__item site-navigation__item--current">Магазин</a></li>
+      <li><a class="site-navigation__item" href="#">Контакты</a></li>
+    </ul>
+
+    <ul class="user-navigation">
+      <li>
+        <a class="user-navigation__link js-popup-logo" href="#">Вход</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
 <main>
 
@@ -234,11 +253,67 @@
   </section>
 </main>
 
-//= template/main-footer.html
+<footer class="main-footer">
+  <p class="contact-info contact-info__main-footer contact-info--white">
+    Барбершоп «БОРОДИНСКИЙ» <br>
+    Адрес: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
+    <a href="#">Как нас найти?</a> <br>
+    Телефон: +7 (495) 666-02-66
+  </p>
 
-//= template/modal-login.html
+  <div class="social">
+    <b>Давайте дружить!</b>
+    <ul>
+      <li>
+        <a href="#" class="btn btn--vk">Вконтакте</a>
+      </li>
+      <li>
+        <a href="#" class="btn btn--fb">Фейсбук</a>
+      </li>
+      <li>
+        <a href="#" class="btn btn--in">Инстаграмм</a>
+      </li>
+    </ul>
+  </div>
 
-//= template/modal-map.html
+  <p class="copyright">
+    <b>Разработано:</b>
+    <a href="#" class="btn">Html Academy</a>
+  </p>
+</footer>
+
+<section class="modal modal--login">
+  <h2>Личный кабинет</h2>
+  <p>Введите пожалуйста свой логин и пароль</p>
+  <form class="login-form" action="#" method="post">
+    <p>
+      <label class="g-hidden">
+        Логин
+      <input class="form-input form-input--login" type="text" name="login" placeholder="Логин">
+      </label>
+    </p>
+    <p>
+      <label class="g-hidden">
+        Пароль
+      <input class="form-input form-input--pass" type="password" name="pass" placeholder="Пароль">
+      </label>
+    </p>
+    <p>
+      <input class="g-hidden" type="checkbox" name="remember-me" id="remember-me">
+      <label class="form-input__label form-input__label--checkbox" for="remember-me">Запомните меня</label>
+
+      <a class="forgot-password" href="#">Я забыл пароль!</a>
+    </p>
+    <button class="btn login-form__btn" type="submit">Войти</button>
+    <button class="modal__close">Закрыть</button>
+  </form>
+</section>
+
+<section class="modal modal--map">
+  <h2 class="g-hidden">Как до нас добраться</h2>
+  <img src="#" alt="Адрес: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
+  <button class="modal__close">Закрыть</button>
+</section>
 
 
 <script src="#"></script>
