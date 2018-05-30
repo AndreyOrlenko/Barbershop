@@ -1,0 +1,8 @@
+@import url(../blocks/btn/btn.css);
+/* Привет1*/
+body {
+   display: flex;
+ /* Привет */
+  border-radius: 10px;
+  background: url("../../blocks/photo.jpg");
+ }

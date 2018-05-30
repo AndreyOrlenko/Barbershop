@@ -1,33 +1,38 @@
 'use strict';
-const gulp        = require('gulp');
-const less        = require('gulp-less');//Преобразует less в css
-const concat      = require('gulp-concat'); //Объедияет файлы
-const debug       = require('gulp-debug'); //Выводит информацию о проделанной работе в консоль
-const sourcemaps  = require('gulp-sourcemaps');// карта файла, из чего он состоит. Позволяет видеть в браузере все составляющие файла
-const del         = require('del'); // удаление дерикторий
-const uglify      = require('gulp-uglify'); // Минимизирует js файлы
-const imgMin      = require('gulp-imagemin'); // минификация изображений
-const pngquant    = require('imagemin-pngquant'); // минифицирует png
-const notify      = require('gulp-notify'); // обработчик ошибок
-const merge       = require('merge-stream'); // Сливает несколько потоков в один
-const browserSync = require('browser-sync'); // обновляет страницу в браузере
-const cssMin      = require('gulp-minify-css'); //  Минимизирует css файлы
-const spritesmith = require('gulp.spritesmith'); //Создает png спрайты
-const paths       = require('path'); // пути
-const csso        = require('gulp-csso');
-const replaceUrl  = require('gulp-css-replace-url'); // Замена url путей в css файлах
+const gulp         = require('gulp');
+// const less         = require('gulp-less');//Преобразует less в css
+// const concat      = require('gulp-concat'); //Объедияет файлы
+const debug        = require('gulp-debug'); //Выводит информацию о проделанной работе в консоль
+const sourcemaps   = require('gulp-sourcemaps');// карта файла, из чего он состоит. Позволяет видеть в браузере все составляющие файла
+const del          = require('del'); // удаление дерикторий
+const uglify       = require('gulp-uglify'); // Минимизирует js файлы
+const imgMin       = require('gulp-imagemin'); // минификация изображений
+const pngquant     = require('imagemin-pngquant'); // минифицирует png
+const notify       = require('gulp-notify'); // обработчик ошибок
+const merge        = require('merge-stream'); // Сливает несколько потоков в один
+const browserSync  = require('browser-sync'); // обновляет страницу в браузере
+// const cssMin      = require('gulp-minify-css'); //  Минимизирует css файлы
+const spritesmith  = require('gulp.spritesmith'); //Создает png спрайты
+const paths        = require('path'); // пути
+const csso         = require('gulp-csso');
+// const replaceUrl  = require('gulp-css-replace-url'); // Замена url путей в css файлах
 const cssUrls      = require('gulp-css-urls');
-const svgSprite   = require('gulp-svg-sprite'); // создание svg спрайтов
-const combiner    = require('stream-combiner2').obj; // нужен для обработки ошибок в тасках
-const filter      = require('gulp-filter'); // Пропускает через себя только определенные файлы
-const ignore      = require('gulp-ignore'); // Игнорирует определенные файлы
-const rigger      = require('gulp-rigger'); // можно импортировать куски кода при помощи конструкции //= main-footer.html
-const rename      = require('gulp-rename'); // изменяет имя файла .pipe(rename('vendor.min.js`))
-const cached      = require('gulp-cached'); // пропускает через себя файлы и файлы с одним и тем же именем и содержимым не пропускает
-const autoprefix  = require('gulp-autoprefixer'); // добавляет префиксы
-const svgo       = require('gulp-svgo');// Сжимает svg файлы
-const newer       = require('gulp-newer');// сравнивает поступающие файлы с файлами в конечной директории
-const If          = require('gulp-if');
+const svgSprite    = require('gulp-svg-sprite'); // создание svg спрайтов
+const combiner     = require('stream-combiner2').obj; // нужен для обработки ошибок в тасках
+// const filter      = require('gulp-filter'); // Пропускает через себя только определенные файлы
+const ignore       = require('gulp-ignore'); // Игнорирует определенные файлы
+const rigger       = require('gulp-rigger'); // можно импортировать куски кода при помощи конструкции //= main-footer.html
+// const rename      = require('gulp-rename'); // изменяет имя файла .pipe(rename('vendor.min.js`))
+const cached       = require('gulp-cached'); // пропускает через себя файлы и файлы с одним и тем же именем и содержимым не пропускает
+// const autoprefix   = require('gulp-autoprefixer'); // добавляет префиксы
+const sass         = require('gulp-sass');
+const autoprefixer = require('autoprefixer');
+const cssnano      = require('cssnano');
+const postcss      = require('gulp-postcss');
+const postcssImport= require('postcss-import');
+const svgo         = require('gulp-svgo');// Сжимает svg файлы
+// const newer       = require('gulp-newer');// сравнивает поступающие файлы с файлами в конечной директории
+const If           = require('gulp-if');
 /* IF - пропускает файлы через поток в зависимости от тех или иных условий
  может принимать функцию
  if(function(file) {
@@ -66,7 +71,7 @@ let path = {
     js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
     jsAll: 'src/js/**/*.js',
     jsNotMain: '!src/js/main.js',
-    less: 'src/less/main.less',
+    less: 'src/less/main.css',
     lessFolder: 'src/less/',
     lessAll: 'src/**/*.less',
     img: 'src/blocks/**/*.{jpg,png,svg}', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
@@ -78,7 +83,9 @@ let path = {
     imgFolder: 'src/img/',
     blocks: 'src/blocks',
     blocksImgAll: 'src/blocks/**/*.{jpg,png,svg}',
-    css: 'src/css/**/*.css'
+    css: 'src/css/**/*.css',
+    postcss: 'src/postcss/main.css',
+    scss: 'src/scss/main.scss',
 
   },
   watchSrc: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
@@ -94,7 +101,12 @@ let path = {
     css: 'src/css/**/*.css',
     img: 'src/blocks/**/*.{jpg,png,svg}',
     imgFolder: 'src/img/**',
-    fonts: 'src/fonts/**/*.*'
+    fonts: 'src/fonts/**/*.*',
+    postcss: 'src/postcss/main.css',
+    postcssBlocks: 'src/blocks/**/*.css',
+    scss: 'src/scss/main.scss',
+    scssBlocks: 'src/blocks/**/*.scss'
+
 
   },
   watchBuild: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
@@ -130,43 +142,32 @@ let config = {
 
 
 //---------------------------------------------------------------------------------------------------------------
-//-------------------------------less-task-------------------------------------------------
-gulp.task('less:build', function () {
+
+//-------------------------------scss-task-------------------------------------------------
+gulp.task('scss:build', function () {
   return combiner(
-      gulp.src(path.src.less),
-      debug(),// title - показывает в консоли название указанное в ковычках
+      gulp.src(path.src.scss),
       If(isDevelopment, sourcemaps.init()),
-      less(),  //сохранение относительных путей relativeUrls: true
-      debug({title: 'src'}),
-      autoprefix({
-        browsers: ['last 16 versions'],
-        cascade: false
-      }),
-      debug({title: 'less'}),
-      // изменяем пути для background
+      sass(),
+
+      If(isDevelopment, sourcemaps.write()),
+
       cssUrls(function (url) {
         return '../img/' + paths.basename(url)
       }, {
         sourcemaps: false,
       }),
 
-      If(isDevelopment, sourcemaps.write()),
-      If(!isDevelopment, csso({
-        restructure: true,
-        sourceMap: false,
-        debug: false
-      })), //сжимает css файлы, на prodiction
-      // replaceUrl({
-      //   prependRelative: '../img/', //изменяет путь для url background в css
-      // }),
-      cached('less'),
-      debug({title: 'cached'}),
-      gulp.dest(path.build.css),
-      debug({title: 'dest'}),
-      browserSync.reload({stream: true})
+      If(!isDevelopment,postcss([autoprefixer({browsers:[' cover 99.5% '] }), cssnano()])),
+
+      cached('postcss'),
+      gulp.dest(path.build.css)
+
+      // browserSync.reload({stream: true})
   ).on('error', notify.onError());
+
 });
-//-------------------------------less-task-------------------------------------------------
+//-------------------------------scss-task-------------------------------------------------
 
 
 //-------------------------------css-task--------------------------------------------------
@@ -294,7 +295,7 @@ gulp.task('png:sprite', function () {
   let spriteData = gulp.src(path.src.imgSpritePng)
       .pipe(spritesmith({
         imgName: 'sprite.png',
-        cssName: 'spritepng.less',
+        cssName: 'spritepng.scss',
         padding: 20, //отступы от изображений по умолчанию в пикселях
         imgPath: 'sprite.png', // указывает путь отдельным изображениям до спрайта
         algorithm: 'binary-tree'
@@ -330,7 +331,7 @@ gulp.task('svg:sprite', function () {
             dimensions: true, //параметры ширины внесены в один файл с позицией
             render: {
               less: {
-                dest: 'spritesvg.less' // тип выводимого файла с координатами
+                dest: 'spritesvg.scss' // тип выводимого файла с координатами
               }
             }
           }
@@ -359,20 +360,20 @@ gulp.task('serve', function () {
 gulp.task('watch', function () {
 
 
-//---------------------------------------------LESS-------------------------------
+//---------------------------------------------SCSS-------------------------------
 //Следим за less файлами в папке less и blocks
-  gulp.watch([path.watchSrc.less, path.watchSrc.lessBlocks, path.watchBuild.cssMain], gulp.series('less:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.postcss], gulp.series('postcss:build')).on('error', notify.onError()).on('unlink', function (filepath) {
     let filePathLess = filepath;
 
-    if (filePathLess === 'src\\less\\main.less') {
-      delete cached.caches.less[paths.resolve(filePathLess)];
+    if (filePathLess === 'src\\postcss\\main.css') {
+      delete cached.caches.postcss[paths.resolve(filePathLess)];
       let pathInBuildLess = 'build\\css\\main.css';
-      del.sync(pathInBuildLess);//удаляем main.сss файл в build, если удален main.less в src
+      del.sync(pathInBuildLess);//удаляем main.сss файл в build, если удален main.css в src
     } else {
 
       if (filePathLess === 'build\\css\\main.css') {
-        let MainCssPathSrc = 'src\\less' + filePathLess.substring(9);
-        delete cached.caches.less[paths.resolve(MainCssPathSrc)];
+        let MainCssPathSrc = 'src\\postcss' + filePathLess.substring(9);
+        delete cached.caches.postcss[paths.resolve(MainCssPathSrc)];
 
       }
 
@@ -386,7 +387,7 @@ gulp.task('watch', function () {
     //   }
     //   gulp.series('css:build')
   });
-//---------------------------------------------LESS-------------------------------
+//---------------------------------------------SCSS-------------------------------
 
 //---------------------------------------------CSS--------------------------------
   gulp.watch([path.watchSrc.css, path.watchBuild.css, path.watchBuild.cssNotMain], gulp.series('css:build')).on('error', notify.onError()).on('unlink', function (filepath) {
@@ -395,7 +396,7 @@ gulp.task('watch', function () {
     if (filePathCss.substring(0, 7) === 'src\\css') {
       delete cached.caches.css[paths.resolve(filePathCss)];
       let pathInBuildCss = 'build\\css' + filePathCss.substring(7);
-      del.sync(pathInBuildCss);//удаляем main.сss файл в build, если удален main.less в src
+      del.sync(pathInBuildCss);//удаляем main.сss файл в build, если удален main.css в src
     } else {
 
       if (filePathCss.substring(0, 9) === 'build\\css') {
@@ -557,4 +558,4 @@ gulp.task('watch', function () {
 
 
 //-------------------------------------GULP------------------------------------------------------------------
-gulp.task('default', gulp.series('clean', 'html:build', 'less:build', 'css:build', 'js:build', 'jsOther:build', 'image:build', 'fonts:build', gulp.parallel('watch', 'serve'))); //паралельно запускает watch и serve
+gulp.task('default', gulp.series('clean', 'html:build', 'scss:build', 'css:build', 'js:build', 'jsOther:build', 'image:build', 'fonts:build', gulp.parallel('watch', 'serve'))); //паралельно запускает watch и serve
