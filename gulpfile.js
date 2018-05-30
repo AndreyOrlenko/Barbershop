@@ -29,7 +29,7 @@ const sass         = require('gulp-sass');
 const autoprefixer = require('autoprefixer');
 const cssnano      = require('cssnano');
 const postcss      = require('gulp-postcss');
-const postcssImport= require('postcss-import');
+// const postcssImport= require('postcss-import');
 const svgo         = require('gulp-svgo');// Сжимает svg файлы
 // const newer       = require('gulp-newer');// сравнивает поступающие файлы с файлами в конечной директории
 const If           = require('gulp-if');
@@ -92,8 +92,8 @@ let path = {
     html: 'src/*.html',
     htmlBlocks: 'src/blocks/**/*.html',
     htmlTamplate: 'src/template/**/*.html',
-    js: 'src/js/main.js',
-    jsAll: 'src/js/**/*.js',
+    js: 'src/js/**/main.js',
+    jsAll: 'src/js/frameworks/*.js',
     jsNotMain: '!src/js/main.js',
     jsBlocks: 'src/blocks/**/*.js',
     less: 'src/less/**/*.less',
@@ -104,14 +104,14 @@ let path = {
     fonts: 'src/fonts/**/*.*',
     postcss: 'src/postcss/main.css',
     postcssBlocks: 'src/blocks/**/*.css',
-    scss: 'src/scss/main.scss',
+    scss: 'src/scss/**/main.scss',
     scssBlocks: 'src/blocks/**/*.scss'
 
 
   },
   watchBuild: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
     html: 'build/*.html',
-    js: 'build/js/main.js',
+    js: 'build/js/**/main.js',
     jsAll: 'build/js/**/*.js',
     jsNotMain: '!build/js/main.js',
     less: 'build/less/**/*.less',
@@ -124,8 +124,24 @@ let path = {
     all: 'build/**/*.*'
   },
   clean: './build'
+
 };
 //---------------------------------------------------------------------------------------------------
+
+
+// function lazyReqireTask(taskName, path, options) {
+//   options.taskName = taskName;
+//
+//   gulp.task(taskName, function (callback) {
+//     let task = require(path).call(this, options);
+//
+//     return task(callback);
+//   });
+// };
+
+
+
+
 
 
 //--------------------------------------------------------------------------------------
@@ -137,7 +153,8 @@ let config = {
   // tunnel: true, // создает тунель по которому можно демонстрировать сайт заказчику
   host: 'localhost',
   port: 9000,
-  logPrefix: "Frontend_Devil"
+  logPrefix: "Frontend_Devil",
+  open: false
 };
 
 
@@ -147,20 +164,23 @@ let config = {
 gulp.task('scss:build', function () {
   return combiner(
       gulp.src(path.src.scss),
+
       If(isDevelopment, sourcemaps.init()),
       sass(),
-
       If(isDevelopment, sourcemaps.write()),
 
       cssUrls(function (url) {
-        return '../img/' + paths.basename(url)
-      }, {
+        if(paths.extname(url) == '.woff' || paths.extname(url) == '.woff2'){
+          return '../fonts/' + paths.basename(url)}
+          return '../img/' + paths.basename(url)},
+          {
         sourcemaps: false,
       }),
 
       If(!isDevelopment,postcss([autoprefixer({browsers:[' cover 99.5% '] }), cssnano()])),
 
-      cached('postcss'),
+      cached('scss'),
+      debug(),
       gulp.dest(path.build.css)
 
       // browserSync.reload({stream: true})
@@ -183,7 +203,7 @@ gulp.task('css:build', function () {
       cached('css'),
       debug({title: 'cached'}),
       gulp.dest(path.build.css),
-      browserSync.reload({stream: true})
+      // browserSync.reload({stream: true})
   ).on('error', notify.onError());
 });
 
@@ -202,7 +222,7 @@ gulp.task('js:build', function () {
       If(!isDevelopment, uglify()), //сжимает js файлы, на prodiction
       cached('js'),
       gulp.dest(path.build.js),
-      browserSync.reload({stream: true})//И перезагрузим наш сервер для обновлений
+      // browserSync.reload({stream: true})//И перезагрузим наш сервер для обновлений
   ).on('error', notify.onError());
 });
 //---------------------------js-task--------------------------------------
@@ -217,7 +237,7 @@ gulp.task('jsOther:build', function () {
       cached('jsAll'),
       debug({title: 'cached'}),
       gulp.dest(path.build.js),
-      browserSync.reload({stream: true})//И перезагрузим наш сервер для обновлений
+      // browserSync.reload({stream: true})//И перезагрузим наш сервер для обновлений
   ).on('error', notify.onError());
 });
 
@@ -244,7 +264,7 @@ gulp.task('html:build', function () {
       cached('html'), // html - название кэша
       debug({title: 'cached'}),
       gulp.dest(path.build.html),//Выплюнем их в папку build
-      browserSync.reload({stream: true}) //И перезагрузим наш сервер для обновлений
+      // browserSync.reload({stream: true}) //И перезагрузим наш сервер для обновлений
   ).on('error', notify.onError());
 });
 //--------------------------------html-task-----------------------------------------
@@ -256,7 +276,7 @@ gulp.task('fonts:build', function () {
   return gulp.src(path.src.fonts)
       .pipe(cached('fonts'))
       .pipe(gulp.dest(path.build.fonts))
-      .pipe(browserSync.reload({stream: true})); //И перезагрузим наш сервер для обновлений
+      // .pipe(browserSync.reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
 //-------------------------------fonts-task------------------------------------------
 
@@ -265,9 +285,11 @@ gulp.task('fonts:build', function () {
 gulp.task('image:build', function () {
   return gulp.src([path.src.img, path.src.imgSprite])
       .on('data', function (file) {
+
+        let fileCwd = file.cwd;
         let baseName = file.basename;
-        file.base = 'D:\\Fun Work\\GULP-template\\src\\blocks';
-        file.path = 'D:\\Fun Work\\GULP-template\\src\\blocks\\' + baseName;
+        file.base = fileCwd + '\\src\\blocks';
+        file.path = fileCwd + '\\src\\blocks\\' + baseName;
 
         return file.relative;
       })//Выберем наши картинки кроме иконок для спрайтов, меняем пути так, что бы избавиться от лишних папок
@@ -282,7 +304,7 @@ gulp.task('image:build', function () {
         interlaced: true
       }))
       .pipe(gulp.dest(path.build.img)) //И бросим в build
-      .pipe(browserSync.reload({stream: true}));//И перезагрузим наш сервер для обновлений
+      // .pipe(browserSync.reload({stream: true}));//И перезагрузим наш сервер для обновлений
 
 });
 //-------------------------------img-task------------------------------------------
@@ -349,7 +371,7 @@ gulp.task('svg:sprite', function () {
 gulp.task('serve', function () {
   browserSync.init(config);// запускаем локальный сервер с переменной config в которой мы указали все параметры
   //Следит за всеми файлами в src и при удалении, изменении, добавлении перезагружает страницу
-  browserSync.watch(['src/**/*.*', 'build/**/*.*']).on('change', browserSync.reload).on('unlink', browserSync.reload).on('error', notify.onError());
+  browserSync.watch(['src/**/*.*', 'build/**/*.*']).on('add', browserSync.reload).on('change', browserSync.reload).on('unlink', browserSync.reload).on('error', notify.onError());
 
 });
 //--------------------------------------serve------------------------------------------------
@@ -362,22 +384,23 @@ gulp.task('watch', function () {
 
 //---------------------------------------------SCSS-------------------------------
 //Следим за less файлами в папке less и blocks
-  gulp.watch([path.watchSrc.postcss], gulp.series('postcss:build')).on('error', notify.onError()).on('unlink', function (filepath) {
-    let filePathLess = filepath;
-
-    if (filePathLess === 'src\\postcss\\main.css') {
-      delete cached.caches.postcss[paths.resolve(filePathLess)];
+  gulp.watch([path.watchSrc.scss, path.watchSrc.scssBlocks], gulp.series('scss:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+    let filePathScss = filepath;
+    if (filePathScss === 'src\\scss\\main.scss') {
+      let fileCached = 'src\\scss\\main.css';
+      delete cached.caches.scss[paths.resolve(fileCached)];
       let pathInBuildLess = 'build\\css\\main.css';
       del.sync(pathInBuildLess);//удаляем main.сss файл в build, если удален main.css в src
-    } else {
-
-      if (filePathLess === 'build\\css\\main.css') {
-        let MainCssPathSrc = 'src\\postcss' + filePathLess.substring(9);
-        delete cached.caches.postcss[paths.resolve(MainCssPathSrc)];
-
-      }
-
     }
+      // else {
+    //
+    //   if (filePathScss === 'build\\css\\main.css') {
+    //     let MainCssPathSrc = 'src\\scss' + filePathScss.substring(9);
+    //     delete cached.caches.scss[paths.resolve(MainCssPathSrc)];
+    //
+    //   }
+    //
+    // }
     // }).on('change', function (filepath) { //При изменении файла в build, очищает cached и удаляет его
     //   let filePathLess = filepath;
     //   if(filePathLess.substring(0, 9) === 'build\\css'){
@@ -390,22 +413,23 @@ gulp.task('watch', function () {
 //---------------------------------------------SCSS-------------------------------
 
 //---------------------------------------------CSS--------------------------------
-  gulp.watch([path.watchSrc.css, path.watchBuild.css, path.watchBuild.cssNotMain], gulp.series('css:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.css], gulp.series('css:build')).on('error', notify.onError()).on('unlink', function (filepath) {
     let filePathCss = filepath;
 
     if (filePathCss.substring(0, 7) === 'src\\css') {
       delete cached.caches.css[paths.resolve(filePathCss)];
       let pathInBuildCss = 'build\\css' + filePathCss.substring(7);
       del.sync(pathInBuildCss);//удаляем main.сss файл в build, если удален main.css в src
-    } else {
-
-      if (filePathCss.substring(0, 9) === 'build\\css') {
-        let CssPathSrc = 'src\\css' + filePathCss.substring(9);
-        delete cached.caches.css[paths.resolve(CssPathSrc)];
-
-      }
-
     }
+    // else {
+    //
+    //   if (filePathCss.substring(0, 9) === 'build\\css') {
+    //     let CssPathSrc = 'src\\css' + filePathCss.substring(9);
+    //     delete cached.caches.css[paths.resolve(CssPathSrc)];
+    //
+    //   }
+    //
+    // }
   });
 
 //---------------------------------------------CSS--------------------------------
@@ -413,19 +437,20 @@ gulp.task('watch', function () {
 
 //---------------------------------------------JS-------------------------------
   //Следим за файлами js в папке js и blocks
-  gulp.watch([path.watchSrc.js, path.watchSrc.jsBlocks, path.watchBuild.js], gulp.series('js:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.js, path.watchSrc.jsBlocks], gulp.series('js:build')).on('error', notify.onError()).on('unlink', function (filepath) {
     let filePathJs = filepath;
     if (filePathJs === 'src\\js\\main.js') {
       delete cached.caches.js[paths.resolve(filepath)];
       let pathInBuildjs = 'build\\js\\main.js';
       del.sync(pathInBuildjs);//удаляем main.js файл в build, если он удален в src
-    } else {
-      if (filePathJs === 'build\\js\\main.js') {
-        let MainJsPathSrc = 'src\\js' + filePathJs.substring(8);
-        delete cached.caches.js[paths.resolve(MainJsPathSrc)];
-
-      }
     }
+    // else {
+    //   if (filePathJs === 'build\\js\\main.js') {
+    //     let MainJsPathSrc = 'src\\js' + filePathJs.substring(8);
+    //     delete cached.caches.js[paths.resolve(MainJsPathSrc)];
+    //
+    //   }
+    // }
     // }).on('change', function (filepath) {//При изменении файла в build, очищает cached и удаляет его
     //   let filePathJS = filepath;
     //   if(filePathJS.substring(0, 8) === 'build\\js'){
@@ -437,7 +462,7 @@ gulp.task('watch', function () {
   });
 
   //Следим за всеми файлами .js кроме main.js как в src так и в build
-  gulp.watch([path.watchSrc.jsAll, path.watchSrc.jsNotMain, path.watchBuild.jsAll, path.watchBuild.jsNotMain], gulp.series('jsOther:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.jsAll, path.watchSrc.jsNotMain], gulp.series('jsOther:build')).on('error', notify.onError()).on('unlink', function (filepath) {
     let filePathJs = filepath;
     console.log(filePathJs);
     console.log(filePathJs.substring(0, 6));
@@ -446,19 +471,20 @@ gulp.task('watch', function () {
       delete cached.caches.jsAll[paths.resolve(filepath)];
       let pathInBuildjs = 'build\\js' + filePathJs.substring(6);
       del.sync(pathInBuildjs);
-    } else {
-      if (filePathJs.substring(0, 8) === 'build\\js') {
-        let JsPathSrc = 'src\\js' + filePathJs.substring(8);
-        delete cached.caches.jsAll[paths.resolve(JsPathSrc)];
-      }
     }
+    // else {
+    //   if (filePathJs.substring(0, 8) === 'build\\js') {
+    //     let JsPathSrc = 'src\\js' + filePathJs.substring(8);
+    //     delete cached.caches.jsAll[paths.resolve(JsPathSrc)];
+    //   }
+    // }
 
   });
 //---------------------------------------------JS-------------------------------
 
 
 //------------------------------------FONTS---------------------------------------
-  gulp.watch([path.watchSrc.fonts, path.watchBuild.fonts], gulp.series('fonts:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.fonts], gulp.series('fonts:build')).on('error', notify.onError()).on('unlink', function (filepath) {
     let filePathFont = filepath;
     if (filePathFont.substring(0, 9) === 'src\\fonts') {
       delete cached.caches.fonts[paths.resolve(filepath)];
@@ -467,18 +493,19 @@ gulp.task('watch', function () {
       del.sync(pathInBuildFile);
 
 
-    } else {
-      if (filePathFont.substring(0, 11) === 'build\\fonts') {   //Проверяем удаленный файл на директорию, если это build код выполнится
-        let filePathFont = filepath;
-        let clipPathFont = filePathFont.substring(5); // Записывает в переменную все символы с 5-го и до конца
-        let dirInSrcFont = 'src' + clipPathFont; // меняет директорию на src
-        delete cached.caches.fonts[paths.resolve(dirInSrcFont)]; // удаляем кэш файла в src, тем самым перезапуская сборку
-
-
-      }
-
-
     }
+    // else {
+    //   if (filePathFont.substring(0, 11) === 'build\\fonts') {   //Проверяем удаленный файл на директорию, если это build код выполнится
+    //     let filePathFont = filepath;
+    //     let clipPathFont = filePathFont.substring(5); // Записывает в переменную все символы с 5-го и до конца
+    //     let dirInSrcFont = 'src' + clipPathFont; // меняет директорию на src
+    //     delete cached.caches.fonts[paths.resolve(dirInSrcFont)]; // удаляем кэш файла в src, тем самым перезапуская сборку
+    //
+    //
+    //   }
+    //
+    //
+    // }
 
 
   });
@@ -490,7 +517,7 @@ gulp.task('watch', function () {
 // За папкой template, если произошли изменения пересобираем основные файлы
   gulp.watch(path.watchSrc.htmlTamplate, gulp.series('html:build')).on('error', notify.onError()).on('unlink', gulp.series('image:build'));
 // За основными файлами, если файл удален, то удаляем его и из build
-  gulp.watch([path.watchSrc.html, path.watchBuild.html], gulp.series('html:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.html], gulp.series('html:build')).on('error', notify.onError()).on('unlink', function (filepath) {
 
     let dirNameDelFile = paths.dirname(filepath);
     if (dirNameDelFile === 'src') {
@@ -499,14 +526,15 @@ gulp.task('watch', function () {
       let pathInBuildFile = 'build\\' + paths.basename(filepath); // При удалении файла, удаляем его копию в build
       del.sync(pathInBuildFile);
 
-    } else {
-      if (dirNameDelFile === 'build') {   //Проверяем удаленный файл на директорию, если это build код выполнится
-        let dirInSrcHtml = 'src\\' + paths.basename(filepath); // переписываем build\file.hml в src\file.html
-        delete cached.caches.html[paths.resolve(dirInSrcHtml)]; // удаляем кэш файла в src, тем самым перезапуская сборку
-      }
-
-      gulp.series('html:build'); // во всех других случаях при удалении файла запускаем таск html:build
     }
+    // else {
+    //   if (dirNameDelFile === 'build') {   //Проверяем удаленный файл на директорию, если это build код выполнится
+    //     let dirInSrcHtml = 'src\\' + paths.basename(filepath); // переписываем build\file.hml в src\file.html
+    //     delete cached.caches.html[paths.resolve(dirInSrcHtml)]; // удаляем кэш файла в src, тем самым перезапуская сборку
+    //   }
+    //
+    //   gulp.series('html:build'); // во всех других случаях при удалении файла запускаем таск html:build
+    // }
 
     // }).on('change', function (filepath) { //При изменении файла в build, очищает cached и удаляет его
     //   let filePathHtml = filepath;
@@ -523,32 +551,33 @@ gulp.task('watch', function () {
 
 //---------------------------------IMAGE----------------------------------------------------
 //следим за ИЗОБРАЖЕНИЯМИ
-  gulp.watch([path.watchSrc.img, path.watchBuild.img, path.src.imgSprite], gulp.series('image:build')).on('error', notify.onError()).on('unlink', function (filepath) {
+  gulp.watch([path.watchSrc.img, path.src.imgSprite], gulp.series('image:build')).on('error', notify.onError()).on('unlink', function (filepath) {
     // записываем в переменную ,базовую директорию удаленного файла
     let pathDelFileImg = filepath;
-    console.log(pathDelFileImg);
+
     //Условие выполнитс, если pathDelFile обрезанный на 9 символов не будет равняться build\img (таким образом при удалении файлов в директории build, код выполняться не будет)
     if (pathDelFileImg.substring(0, 10) === 'src\\blocks') {
       let relativeImgPath = 'src\\blocks\\' + paths.basename(filepath);
+
       delete cached.caches.image[paths.resolve(relativeImgPath)];
       //записываем в переменную пyть до файла в build, \\ - воспроизводятся как один (Подсказка, path в node.js)
       let pathInBuildFile = 'build\\img\\' + paths.basename(filepath);
       //через метод sync, модуля del удаляем файл по выбраннама пути
       del.sync(pathInBuildFile);
-
-    } else {
-
-      if (pathDelFileImg.substring(0, 9) === 'build\\img') {   //Проверяем удаленный файл на директорию, если это build код выполнится
-        console.log('Получилось');
-        let clipPathImg = paths.basename(filepath); // Записывает в переменную все символы с 5-го и до конца
-        console.log(clipPathImg);
-        let dirInSrcImg = 'src\\blocks\\' + clipPathImg; // меняет директорию на src
-        console.log(dirInSrcImg);
-        delete cached.caches.image[paths.resolve(dirInSrcImg)]; // удаляем кэш файла в src, тем самым перезапуская сборку
-      }
-
-
     }
+    //  else {
+    //
+    //   if (pathDelFileImg.substring(0, 9) === 'build\\img') {   //Проверяем удаленный файл на директорию, если это build код выполнится
+    //     console.log('Получилось');
+    //     let clipPathImg = paths.basename(filepath); // Записывает в переменную все символы с 5-го и до конца
+    //     console.log(clipPathImg);
+    //     let dirInSrcImg = 'src\\blocks\\' + clipPathImg; // меняет директорию на src
+    //     console.log(dirInSrcImg);
+    //     delete cached.caches.image[paths.resolve(dirInSrcImg)]; // удаляем кэш файла в src, тем самым перезапуская сборку
+    //   }
+    //
+    //
+    // }
   });
 //--------------------------------------------IMAGE---------------------------------------
 

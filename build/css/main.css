@@ -1,1 +1,10 @@
-.btn{bottom:0}body{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;background:url(../img/photo.jpg)}
+.btn {
+  bottom: 0;
+}
+
+@font-face {
+  font-family: Pompadur;
+  src: url("../fonts/ptsansnarrow.woff");
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzIjpbIm1haW4uc2NzcyIsIi4uL2Jsb2Nrcy9idG4vYnRuLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIi4uL2Jsb2Nrcy9idG4vYnRuLnNjc3NcIjsiLCIuYnRuIHtcclxuICBib3R0b206IDA7XHJcbn1cclxuXHJcbkBmb250LWZhY2Uge1xyXG4gIGZvbnQtZmFtaWx5OiBQb21wYWR1cjtcclxuICBzcmM6IHVybChcIi4uLy4uL2ZvbnRzL3B0c2Fuc25hcnJvdy53b2ZmXCIpO1xyXG59Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQ0FBLEFBQUEsSUFBSSxDQUFDO0VBQ0gsTUFBTSxFQUFFLENBQUMsR0FDVjs7QUFFRCxVQUFVO0VBQ1IsV0FBVyxFQUFFLFFBQVE7RUFDckIsR0FBRyxFQUFFLG9DQUFvQyJ9 */
