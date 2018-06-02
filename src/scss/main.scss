@@ -1,5 +1,6 @@
-@import "../blocks/btn/btn.scss";
+@import "../blocks/_custom/variables.scss";
+@import "../blocks/_custom/mixins.scss";
+@import "../blocks/_custom/style-optimization.scss";
+@import "../blocks/_custom/g-hidden.scss";
 
-.class {
-
-}
+@import "../blocks/body/body.scss";

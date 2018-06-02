@@ -27,6 +27,7 @@ const gulp = require('gulp'),
     fileinclude = require('gulp-file-include'),
     If = require('gulp-if');
 
+
 let isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 /*При таком условии будет генирироваться sourcemap,
 если нужно создать файл без него, в консоли запускаем ( set NODE_ENV=prodaction )
@@ -114,7 +115,7 @@ let config = {
   host: 'localhost',
   port: 9000,
   logPrefix: "Frontend_Devil",
-  open: false
+  open: true
 };
 //---------------------------------------------------------------------------------------------------------------
 
@@ -140,7 +141,6 @@ gulp.task('scss:build', function () {
       If(!isDevelopment, postcss([autoprefixer({browsers: [' cover 99.5% ']}), cssnano()])),
 
       cached('scss'),
-      debug(),
       gulp.dest(path.build.css)
       // browserSync.reload({stream: true})//И перезагрузим наш сервер для обновлений
   ).on('error', notify.onError());
@@ -341,7 +341,7 @@ gulp.task('serve', function () {
 gulp.task('watch', function () {
 
 //---------------------------------------------SCSS-------------------------------
-  watch([path.watchSrc.scss, path.watchSrc.scssBlocks], {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch([path.watchSrc.scss, path.watchSrc.scssBlocks], {usePolling: true} , function (file) {
 
     if (file.event === 'unlink') {
       let filePath = file.path;
@@ -357,6 +357,7 @@ gulp.task('watch', function () {
         gulp.start('scss:build');
       }
       gulp.start('scss:build');
+
     } else if (file.event === 'error') {
       notify.onError();
     }
@@ -366,7 +367,7 @@ gulp.task('watch', function () {
 //---------------------------------------------SCSS-------------------------------
 
 //---------------------------------------------CSS--------------------------------
-  watch(path.watchSrc.css, {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch(path.watchSrc.css, {usePolling: true}, function (file) {
 
     if (file.event === 'unlink') {
       let filePath = file.path;
@@ -388,7 +389,7 @@ gulp.task('watch', function () {
 
 
 //---------------------------------------------JS-------------------------------
-  watch([path.watchSrc.js, path.watchSrc.jsBlocks], {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch([path.watchSrc.js, path.watchSrc.jsBlocks], {usePolling: true}, function (file) {
 
     if (file.event === 'unlink') {
       let filePath = file.path;
@@ -412,7 +413,7 @@ gulp.task('watch', function () {
 
 //Следим за всеми файлами .js кроме main.js как в src так и в build
 
-  watch([path.watchSrc.jsAll, path.watchSrc.jsNotMain], {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch([path.watchSrc.jsAll, path.watchSrc.jsNotMain], {usePolling: true}, function (file) {
 
     if (file.event === 'unlink') {
       delete cached.caches.jsAll[file.path];
@@ -435,7 +436,7 @@ gulp.task('watch', function () {
 //------------------------------------FONTS---------------------------------------
 
 
-  watch(path.watchSrc.fonts, {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch(path.watchSrc.fonts, {usePolling: true}, function (file) {
 
     if (file.event === 'unlink') {
 
@@ -462,7 +463,7 @@ gulp.task('watch', function () {
 //------------------------------------------HTML----------------------------------------
 //Следим за файлами HTML в папке template и в основной директории
 // За папкой template, если произошли изменения пересобираем основные файлы
-  watch(path.watchSrc.htmlTamplate, {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch(path.watchSrc.htmlTamplate, {usePolling: true}, function (file) {
     if (file.event === 'error') {
       notify.onError()
     }
@@ -471,7 +472,7 @@ gulp.task('watch', function () {
 
 
 // За основными файлами, если файл удален, то удаляем его и из build
-  watch(path.watchSrc.html, {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch(path.watchSrc.html, {usePolling: true}, function (file) {
     if (file.event === 'unlink') {
       delete cached.caches.html[file.path];
       let filePath = file.path;
@@ -490,32 +491,18 @@ gulp.task('watch', function () {
 
 
 //---------------------------------IMAGE----------------------------------------------------
-  watch([path.watchSrc.img, path.src.imgSprite], {events: ['add', 'change', 'unlink', 'addDir', 'unlinkDir', 'error']}, function (file) {
+  watch([path.watchSrc.img, path.src.imgSprite], {usePolling: true}, function (file) {
     if (file.event === 'unlink') {
       let filePath = file.path;
       let FilePathSplit = filePath.split('src');
       if (FilePathSplit[1].substring(1, 7) === 'blocks'){
         let relativeImgPath = FilePathSplit[0] + 'src\\blocks\\' + file.basename;
-        console.log(relativeImgPath);
         delete cached.caches.image[relativeImgPath];
-        console.log('Кэш удален');
         let pathInBuildFile = 'build\\img\\' + file.basename;
         del.sync(pathInBuildFile);
         gulp.start('image:build');
       }
-
     }
-
-    // //Условие выполнитс, если pathDelFile обрезанный на 9 символов не будет равняться build\img (таким образом при удалении файлов в директории build, код выполняться не будет)
-    // if (pathDelFileImg.substring(0, 10) === 'src\\blocks') {
-    //   let relativeImgPath = 'src\\blocks\\' + paths.basename(filepath);
-    //
-    //   delete cached.caches.image[paths.resolve(relativeImgPath)];
-    //   //записываем в переменную пyть до файла в build, \\ - воспроизводятся как один (Подсказка, path в node.js)
-    //   let pathInBuildFile = 'build\\img\\' + paths.basename(filepath);
-    //   //через метод sync, модуля del удаляем файл по выбраннама пути
-    //   del.sync(pathInBuildFile);
-    // }
   });
 //--------------------------------------------IMAGE---------------------------------------
 
@@ -525,4 +512,4 @@ gulp.task('watch', function () {
 
 
 //-------------------------------------GULP------------------------------------------------------------------
-gulp.task('default', gulpSequence(['clean'], 'html:build', 'scss:build', 'css:build', 'js:build', 'jsOther:build', 'image:build', 'fonts:build', ['watch']));
+gulp.task('default', gulpSequence(['clean'], ['html:build', 'scss:build', 'css:build', 'js:build', 'jsOther:build', 'image:build', 'fonts:build'], ['watch', 'serve']));
