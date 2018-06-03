@@ -1,0 +1,28 @@
+.modal {
+
+  color: $color-two;
+
+  &__overlay {
+
+  }
+  &__close {
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+  }
+
+  &--login {
+    background: #f8f5f2 url("pattern.jpg") repeat 0 0;
+  }
+
+  &--map {
+    width: 768px;
+    height: 560px;
+
+    background: #aba9a7;
+
+
+
+  }
+}

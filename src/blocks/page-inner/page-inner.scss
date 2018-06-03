@@ -1,0 +1,19 @@
+.page-inner {
+  margin: 0px;
+  padding: 0px;
+  font-family: "PT Sans Narrow", Arial, sans-serif;
+  font-size: 14px;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $color-two;
+
+  background:  #f8f5f2 url("pattern.jpg") repeat 0 0 ;
+
+  &--lh-18 {
+    line-height: 18px;
+  }
+  &--lh-24 {
+    line-height: 24px;
+  }
+}

@@ -1,5 +1,9 @@
 .main-footer {
-  background: @color-footer-bg url("main-footer-pattern.jpg") 0 0 repeat;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: $color-one;
+  background: $color-footer-bg url("main-footer-pattern.jpg") 0 0 repeat;
 
 
 }

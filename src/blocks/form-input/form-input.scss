@@ -1,17 +1,35 @@
 .form-input {
   font: inherit;
 
-
-  color: @color-two;
-  border: 2px solid @color-two;
+  color: $color-two;
+  border: 2px solid $color-two;
   background: #f9f6f3;
 
-
   &:focus {
-    border-color: @color-bg-hover-btn;
+    border-color: $color-bg-hover-btn;
+  }
+  &:disabled + &__label {
+    color: $color-two;
+    opacity: 0.5;
+    cursor: auto;
   }
 
+  &__label {
+    font: inherit;
+    text-transform: uppercase;
+    color: inherit;
+    cursor: pointer;
 
+    &:hover {
+      color: $color-bg-hover-btn;
+    }
+  }
 
+  &--login {
 
+  }
+
+  &--pass {
+
+  }
 }

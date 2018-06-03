@@ -1,7 +1,15 @@
 .main-navigation {
   font-size: 16px;
-  line-height: 20px;
-  color: @color-one;
 
-  background: @color-two;
+  color: $color-one;
+
+  background: $color-two;
+
+  &--lh-24 {
+    line-height: 24px;
+  }
+
+  &--lh-20 {
+    line-height: 20px;
+  }
 }

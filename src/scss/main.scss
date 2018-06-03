@@ -1,6 +1,76 @@
 @import "../blocks/_custom/variables.scss";
 @import "../blocks/_custom/mixins.scss";
 @import "../blocks/_custom/style-optimization.scss";
-@import "../blocks/_custom/g-hidden.scss";
 
-@import "../blocks/body/body.scss";
+
+//pages
+@import "../blocks/page-main/page-main";
+@import "../blocks/page-inner/page-inner.scss";
+
+
+//blocks
+@import "../blocks/_custom/g-hidden.scss";
+@import "../blocks/large-title/large-title.scss";
+@import "../blocks/btn/btn.scss";
+
+
+
+
+//main header
+@import "../blocks/main-header/main-header.scss";
+@import "../blocks/main-navigation/main-navigation.scss";
+@import "../blocks/main-logo/main-logo.scss";
+@import "../blocks/site-navigation/site-navigation.scss";
+@import "../blocks/user-navigation/user-navigation.scss";
+
+
+//main index
+@import "../blocks/features/features.scss";
+@import "../blocks/index-columns/index-columns.scss";
+@import "../blocks/news/news.scss";
+@import "../blocks/gallery-photo/gallery-photo.scss";
+@import "../blocks/contact-info/contact-info.scss";
+@import "../blocks/appointment/appointment.scss";
+@import "../blocks/form-input/form-input.scss";
+
+//main-footer
+@import "../blocks/main-footer/main-footer.scss";
+@import "../blocks/social/social.scss";
+@import "../blocks/copyright/copyright.scss";
+
+//modal
+@import "../blocks/modal/modal.scss";
+@import "../blocks/form-login/form-login.scss";
+@import "../blocks/image-map/image-map.scss";
+
+
+//main catalog
+@import "../blocks/bradecrumbs/bradecrumbs.scss";
+@import "../blocks/middle-title/middle-title.scss";
+@import "../blocks/catalog-products/catalog-products.scss";
+@import "../blocks/product-card/product-card.scss";
+@import "../blocks/image-product-cart/image-product-cart.scss";
+@import "../blocks/price/price.scss";
+
+
+//main product
+@import "../blocks/product-photos/product-photos.scss";
+@import "../blocks/product-card/product-card.scss";
+@import "../blocks/product-photo/product-photo.scss";
+@import "../blocks/product-description/product-description.scss";
+@import "../blocks/product-price/product-price.scss";
+@import "../blocks/description-list/description-list.scss";
+
+
+//main price
+@import "../blocks/slogan/slogan.scss";
+@import "../blocks/top-brands/top-brands.scss";
+@import "../blocks/price-list/price-list.scss";
+@import "../blocks/table/table.scss";
+
+
+
+
+
+
+

@@ -1,4 +1,13 @@
 .main-logo {
-   width: 368px;
-   height: 153px;
+color: $color-one;
+
+  &--large {
+    width: 368px;
+    height: 153px;
+  }
+
+  &--small {
+    width: 111px;
+    height: 24px;
+  }
  }

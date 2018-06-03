@@ -6,25 +6,25 @@
   <title>Barbershop BORODINSKI</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="postcss/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body class="page-inner page-inner--lh-24">
 
-//= template/catalog-header.html
+@include('template/catalog-header.html')
 
 <main>
   <h1 class="large-title">Набор для путешествий «Baxter of California»</h1>
   <ul class="bradecrumbs">
     <li>
-      <a class="list-item" href="#">Главная</a>
+      <a class="bradecrumbs__link" href="#">Главная</a>
     </li>
     <li>
-      <a class="list-item" href="#">Магазин</a>
+      <a class="bradecrumbs__link" href="#">Магазин</a>
     </li>
     <li>
-      <a class="list-item" href="#">Средства для ухода</a>
+      <a class="bradecrumbs__link" href="#">Средства для ухода</a>
     </li>
-    <li class="list-item list-item--current">
+    <li class="bradecrumbs__link bradecrumbs__link--current">
       Набор для путешествий «Baxter of California»
     </li>
   </ul>
@@ -34,17 +34,17 @@
     <ul class="product-photos-preview">
       <li  class="product-card">
         <p>
-          <img class="product-photo product-photo--big" src="#" alt="Общая фотография товара">
+          <img class="product-photo product-photo--big" src="img/product-photo-big.jpg" alt="Общая фотография товара">
         </p>
       </li>
       <li class="product-card">
-        <img class="product-photo" src="#" alt="Фотография в профиль">
+        <img class="product-photo" src="img/product-photo-small-1.jpg" alt="Фотография в профиль">
       </li>
       <li class="product-card">
-        <img class="product-photo" src="#" alt="Фотография в анфас">
+        <img class="product-photo" src="img/product-photo-small-2.jpg" alt="Фотография в анфас">
       </li>
       <li class="product-card">
-        <img class="product-photo" src="#" alt="Фото отдельной части">
+        <img class="product-photo" src="img/product-photo-small-3.jpg" alt="Фото отдельной части">
       </li>
     </ul>
 
@@ -61,11 +61,11 @@
       подарком.</p>
 
     <p class="product-price">
-      <b>2900₽</b>
+      <b class="price">2900₽</b>
       <button class="btn">Купить</button>
     </p>
 
-    <h3 class="middle-title">В набор входят</h3>
+    <h3 class="middle-title">В набор входят:</h3>
 
     <ul class="description-list">
       <li class="list-item">
@@ -88,11 +88,11 @@
   </section>
 </main>
 
-//= template/main-footer.html
+@include('template/main-footer.html')
 
-//= template/modal-login.html
+@include('template/modal-login.html')
 
-//= template/modal-map.html
+@include('template/modal-map.html')
 
 <script src="#"></script>
 </body>

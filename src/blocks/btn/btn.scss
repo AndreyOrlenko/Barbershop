@@ -1,5 +1,38 @@
 .btn {
-  bottom: 0;
+  border: 0;
+  font: inherit;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+
+  background: $color-two;
+  color: $color-one;
+
+  cursor: pointer;
+
+  &:hover,&:active,&:focus {
+    background: $color-bg-hover-btn;
+  }
+
+
+
+  &--current {
+    background: $color-one;
+    color: $color-two;
+
+    cursor: auto;
+
+    &:hover,&:active,&:focus {
+      background: $color-one;
+    }
+  }
+  &--white-hover {
+
+    &:hover,&:active,&:focus {
+      background: $color-one;
+      color: $color-two;
+    }
+  }
 }
 
 

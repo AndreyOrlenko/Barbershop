@@ -1,0 +1,26 @@
+.product-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+
+
+  &__content {
+    color: inherit;
+
+  }
+
+  &__title {
+    font: inherit;
+
+  }
+
+  &__title-part-one {
+    text-transform: none;
+  }
+
+  &__title-part-two {
+
+  }
+}
