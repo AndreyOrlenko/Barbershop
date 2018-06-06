@@ -10,130 +10,142 @@
 </head>
 <body class="page-inner page-inner--lh-24">
 
-<header class="main-header">
-  <nav class="main-navigation main-navigation--lh-20">
-    <a href="index.html">
-      <img class="main-logo main-header__main-logo main-logo--small" src="img/main-logo-small.png" alt="Логотип Барбершопа Бородинский">
-    </a>
-    <ul class="site-navigation">
-      <li><a class="site-navigation__link" href="#">Информация</a></li>
-      <li><a class="site-navigation__link" href="#">Новости</a></li>
-      <li><a class="site-navigation__link" href="#">Прайс-лист</a></li>
-      <li><a class="site-navigation__link site-navigation__link--current">Магазин</a></li>
-      <li><a class="site-navigation__link" href="#">Контакты</a></li>
-    </ul>
+<header class="main-header main-header--black-bg main-header--m-b-55px">
+  <div class="container">
+    <nav class="main-navigation main-navigation--lh-20">
+      <a href="index.html">
+        <img class="main-logo main-header__main-logo main-logo--small" src="img/main-logo-small.png"
+             alt="Логотип Барбершопа Бородинский">
+      </a>
+      <ul class="site-navigation">
+        <li><a class="site-navigation__link" href="#">Информация</a></li>
+        <li><a class="site-navigation__link" href="#">Новости</a></li>
+        <li><a class="site-navigation__link" href="#">Прайс-лист</a></li>
+        <li><a class="site-navigation__link site-navigation__link--current">Магазин</a></li>
+        <li><a class="site-navigation__link" href="#">Контакты</a></li>
+      </ul>
 
-    <ul class="user-navigation">
-      <li>
-        <a class="user-navigation__link js-popup-logo" href="#">Вход</a>
-      </li>
-    </ul>
-  </nav>
+      <ul class="user-navigation">
+        <li>
+          <a class="user-navigation__link js-popup-logo" href="#">Вход</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <h1 class="large-title">Набор для путешествий «Baxter of California»</h1>
-  <ul class="bradecrumbs">
-    <li>
-      <a class="bradecrumbs__link" href="#">Главная</a>
-    </li>
-    <li>
-      <a class="bradecrumbs__link" href="#">Магазин</a>
-    </li>
-    <li>
-      <a class="bradecrumbs__link" href="#">Средства для ухода</a>
-    </li>
-    <li class="bradecrumbs__link bradecrumbs__link--current">
-      Набор для путешествий «Baxter of California»
-    </li>
-  </ul>
+<main class="main-product">
+  <div class="container">
+    <h1 class="large-title page-inner__large-title">Набор для путешествий «Baxter of California»</h1>
+    <ul class="bradecrumbs main-product__bradecrumbs bradecrumbs--lh-24">
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link" href="#">Главная</a>
+      </li>
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link" href="#">Магазин</a>
+      </li>
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link" href="#">Средства для ухода</a>
+      </li>
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link bradecrumbs__link--current">Набор для путешествий «Baxter of California»</a>
+      </li>
+    </ul>
 
-  <section class="product-photos">
-    <h2 class="g-hidden">Фотографии товара</h2>
-    <ul class="product-photos-preview">
-      <li  class="product-card">
-        <p>
-          <img class="product-photo product-photo--big" src="img/product-photo-big.jpg" alt="Общая фотография товара">
+    <div class="wrapper-columns">
+      <section class="product-photos">
+        <h2 class="g-hidden">Фотографии товара</h2>
+        <ul class="product-photos-preview">
+          <li class="product-card product-photos-preview__product-card product-card--large">
+            <p class="product-photo product-photo--mp-reset product-photo--big">
+              <img src="img/product-photo-big.jpg" alt="Общая фотография товара">
+            </p>
+          </li>
+          <li class="product-card product-photos-preview__product-card product-card--small">
+            <img class="product-photo" src="img/product-photo-small-1.jpg" alt="Фотография в профиль">
+          </li>
+          <li class="product-card product-photos-preview__product-card product-card--small">
+            <img class="product-photo" src="img/product-photo-small-2.jpg" alt="Фотография в анфас">
+          </li>
+          <li class="product-card product-photos-preview__product-card product-card--small">
+            <img class="product-photo" src="img/product-photo-small-3.jpg" alt="Фото отдельной части">
+          </li>
+        </ul>
+
+      </section>
+
+
+      <section class="product-description">
+        <h2 class="g-hidden">Описание товара</h2>
+        <div class="wrapper-product-description">
+          <p class="product-description__availability">Есть в наличии</p>
+          <p class="product-description__article">Артикул: dexter-ae</p>
+        </div>
+        <p class="product-description__text">Travel Kit – необходимый аксессуар во время любого путешествия. В
+          аккуратной
+          кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха:
+          средство
+          для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным
+          подарком.</p>
+
+        <p class="product-price product-description__product-price">
+          <b class="price">2900₽</b>
+          <button class="btn">Купить</button>
         </p>
-      </li>
-      <li class="product-card">
-        <img class="product-photo" src="img/product-photo-small-1.jpg" alt="Фотография в профиль">
-      </li>
-      <li class="product-card">
-        <img class="product-photo" src="img/product-photo-small-2.jpg" alt="Фотография в анфас">
-      </li>
-      <li class="product-card">
-        <img class="product-photo" src="img/product-photo-small-3.jpg" alt="Фото отдельной части">
-      </li>
-    </ul>
 
-  </section>
+        <h3 class="middle-title product-description__middle-title">В набор входят:</h3>
 
-
-  <section class="product-description">
-    <h2 class="g-hidden">Описание товара</h2>
-    <p class="product-description__availability">Есть в наличии</p>
-    <p class="product-description__article">Артикул: dexter-ae</p>
-    <p class="product-description__text">Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной
-      кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство
-      для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным
-      подарком.</p>
-
-    <p class="product-price">
-      <b class="price">2900₽</b>
-      <button class="btn">Купить</button>
-    </p>
-
-    <h3 class="middle-title">В набор входят:</h3>
-
-    <ul class="description-list">
-      <li class="list-item">
-        Средство для умывания (50 мл)
-      </li>
-      <li class="list-item">
-        Увлажняющий крем (50 мл)
-      </li>
-      <li class="list-item">
-        Крем для бритья (50 мл)
-      </li>
-      <li class="list-item">
-        Крем после бритья, шампунь (50 мл)
-      </li>
-      <li class="list-item">
-        Удобная кожаная косметичка
-      </li>
-    </ul>
-
-  </section>
+        <ul class="product-description__list">
+          <li class="product-description__item">
+            Средство для умывания (50 мл)
+          </li>
+          <li class="product-description__item">
+            Увлажняющий крем (50 мл)
+          </li>
+          <li class="product-composition-list__item">
+            Крем для бритья (50 мл)
+          </li>
+          <li class="product-composition-list__item">
+            Крем после бритья, шампунь (50 мл)
+          </li>
+          <li class="product-composition-list__item">
+            Удобная кожаная косметичка
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
 </main>
 
 <footer class="main-footer">
-  <p class="contact-info main-footer__contact-info contact-info--footer">
-    Барбершоп «БОРОДИНСКИЙ» <br>
-    Адрес: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
-    <a class="contact-info__link" href="#">Как нас найти?</a> <br>
-    Телефон: +7 (495) 666-02-66
-  </p>
+  <div class="container container--flex">
+    <p class="contact-info main-footer__contact-info contact-info--footer">
+      Барбершоп «БОРОДИНСКИЙ» <br>
+      Адрес: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
+      <a class="contact-info__link" href="#">Как нас найти?</a> <br>
+      Телефон: +7 (495) 666-02-66
+    </p>
 
-  <div class="social">
-    <b>Давайте дружить!</b>
-    <ul>
-      <li>
-        <a href="#" class="btn btn--white-hover">Вконтакте</a>
-      </li>
-      <li>
-        <a href="#" class="btn btn--white-hover">Фейсбук</a>
-      </li>
-      <li>
-        <a href="#" class="btn btn--white-hover">Инстаграмм</a>
-      </li>
-    </ul>
+    <div class="social  main-footer__social">
+      <b class="social__text">Давайте дружить!</b>
+      <ul class="social__list">
+        <li class="social__item">
+          <a href="#" class="btn social__btn  btn--small btn--white-hover btn--vk"><span class="g-hidden">Вконтакте</span></a>
+        </li>
+        <li class="social__item">
+          <a href="#" class="btn social__btn  btn--small btn--white-hover btn--fb"><span class="g-hidden">Фейсбук</span></a>
+        </li>
+        <li class="social__item">
+          <a href="#" class="btn social__btn  btn--small btn--white-hover btn--inst"><span class="g-hidden">Инстаграмм</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="copyright">
+      <b class="copyright__text">Разработано:</b>
+      <a href="#" class="btn copyright__btn btn--middle btn--white-hover">Html Academy</a>
+    </p>
   </div>
-
-  <p class="copyright">
-
-    <a href="#" class="btn btn--white-hover">Html Academy</a>
-  </p>
 </footer>
 
 <div class="modal__overlay">

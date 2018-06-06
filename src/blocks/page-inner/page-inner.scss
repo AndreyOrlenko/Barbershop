@@ -10,6 +10,12 @@
 
   background:  #f8f5f2 url("pattern.jpg") repeat 0 0 ;
 
+  &__large-title {
+    margin-bottom: 20px;
+  }
+
+
+
   &--lh-18 {
     line-height: 18px;
   }

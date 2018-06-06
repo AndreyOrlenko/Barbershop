@@ -1,4 +1,9 @@
 .btn {
+  box-sizing: border-box;
+  display: inline-block;
+
+  padding: 12px 0;
+
   border: 0;
   font: inherit;
   text-transform: uppercase;
@@ -10,11 +15,9 @@
 
   cursor: pointer;
 
-  &:hover,&:active,&:focus {
+  &:hover, &:active, &:focus {
     background: $color-bg-hover-btn;
   }
-
-
 
   &--current {
     background: $color-one;
@@ -22,18 +25,65 @@
 
     cursor: auto;
 
-    &:hover,&:active,&:focus {
+    &:hover, &:active, &:focus {
       background: $color-one;
     }
   }
+
   &--white-hover {
 
-    &:hover,&:active,&:focus {
+    &:hover, &:active, &:focus {
       background: $color-one;
       color: $color-two;
     }
+
+  }
+
+  &--small {
+    width: 43px;
+    height: 43px;
+
+  }
+
+  &--middle {
+    min-width: 140px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  &--large {
+    width: 100%;
+  }
+
+  &--vk {
+    background: $color-two url("vk-white.svg") no-repeat center center;;
+    background-size: 27px 15px;
+
+    &:hover {
+      background: $color-one url("vk-black.svg") no-repeat center center;;
+      background-size: 27px 15px;
+    }
+  }
+
+  &--fb {
+    background: $color-two url("fb-white.svg") no-repeat center center;;
+    background-size: 27px 15px;
+
+    &:hover {
+      background: $color-one url("fb-black.svg") no-repeat center center;;
+      background-size: 27px 15px;
+    }
+  }
+
+  &--inst {
+    background: $color-two url("inst-white.svg") no-repeat center center;;
+    background-size: 27px 15px;
+
+    &:hover {
+      background: $color-one url("inst-black.svg") no-repeat center center;;
+      background-size: 27px 15px;
+    }
   }
 }
-
 
 

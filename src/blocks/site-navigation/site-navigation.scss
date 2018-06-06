@@ -1,7 +1,13 @@
 .site-navigation {
-
+  display: flex;
+  flex-wrap: wrap;
+  width: 620px;
+  min-height: 72px;
+  @extend %reset-ul;
 
   &__link {
+    display: block;
+    padding: 25px 20px 27px 20px;
     color: inherit;
 
     &:hover,&:active,&:focus {
@@ -9,4 +15,8 @@
     }
 
   }
+
+
 }
+
+

@@ -1,4 +1,13 @@
 .appointment {
+  width: 300px;
+  min-height: 320px;
 
+  &__large-title {
+    margin-bottom: 20px;
+  }
 
+  &__text {
+    @extend %reset-mp;
+    margin-bottom: 15px;
+  }
 }

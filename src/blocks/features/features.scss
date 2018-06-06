@@ -1,9 +1,41 @@
 .features {
+  margin-bottom: 80px;
   text-align: center;
-  &__list {
 
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+
+    @extend %reset-ul;
   }
   &__item {
+    width: 280px;
+    padding: 0 10px;
 
+  }
+
+  &__large-title {
+    margin-bottom: 60px;
+
+
+    &::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 55px;
+      left: 50%;
+
+      margin-left: -10px;
+
+      background: #f7f4f1;
+      transform: rotate(45deg);
+
+    }
+  }
+
+  &__text {
+    @extend %reset-mp;
   }
 }

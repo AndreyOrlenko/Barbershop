@@ -1,8 +1,15 @@
 .bradecrumbs {
-  font-size: 14px;
+  height: 20px;
 
+  font-size: 14px;
+  @extend %reset-ul;
+
+  &__item {
+    display: inline-block;
+  }
 
   &__link {
+
     color: inherit;
     cursor: pointer;
 

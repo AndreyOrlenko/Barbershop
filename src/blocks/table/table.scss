@@ -1,11 +1,20 @@
 .table {
+  width: 100%;
   border-collapse: collapse;
+  text-align: center;
 
   &__row {
 
   }
 
   &__td {
+    width: 50%;
+    height: 39px;
     border: 2px solid #000000;
+
+    &--left {
+      padding-left: 17px;
+      text-align: left;
+    }
   }
 }

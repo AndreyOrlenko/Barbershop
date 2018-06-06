@@ -1,6 +1,29 @@
 .product-description {
+  width: 390px;
+
+  &__availability {
+    @extend %reset-mp;
+  }
 
   &__article {
+    @extend %reset-mp;
     color: #aeaeae;
   }
+
+  &__text {
+    @extend %reset-mp;
+    margin-bottom: 40px;
+  }
+
+  &__product-price {
+    margin-bottom: 65px;
+  }
+
+  &__middle-title {
+    margin-bottom: 30px;
+  }
+  &__list {
+    @extend %reset-ul;
+  }
+
 }

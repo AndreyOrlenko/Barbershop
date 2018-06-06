@@ -12,125 +12,131 @@
 @include('template/main-header.html')
 
 <main>
+  <div class="container">
+    <h1 class="g-hidden">Barbershop BORODINSKI</h1>
 
-  <h1 class="g-hidden">Barbershop BORODINSKI</h1>
-
-  <section class="features">
-    <h2 class="g-hidden">Преимущества</h2>
-    <ul class="features__list">
-      <li class="features__item">
-        <h3 class="large-title">
-          Быстро
-        </h3>
-        <p>
-          Мы делаем свою работу быстро! Два часа
-          пролетят незаметно и вы счасливый
-          обладатель стильной стрижки-минутки!
-        </p>
-      </li>
-      <li class="features__item">
-        <h3 class="large-title">
-          Круто
-        </h3>
-        <p>
-          Забудьте, как вы стриглись ранее
-          мы сделаем из вас звезду футбола или кино
-          во всяком случае внешне.
-        </p>
-      </li>
-      <li class="features__item">
-        <h3 class="large-title">
-          Дорого
-        </h3>
-        <p>
-          Наши мастера - проффесионалы своего дела
-          не могут стоить дешево. К тому же, разве цена
-          не дает определенный статус?
-        </p>
-      </li>
-    </ul>
-  </section>
-
-  <div class="index-columns">
-    <section class="news">
-      <h2 class="large-title">Новости</h2>
-      <ul class="news__list">
-        <li class="news__item">
-          <p>
-            Нам наконец завезли ягермейстер!
-            Теперь вы можете пропустить стаканчик во время стрижки
+    <section class="features">
+      <h2 class="g-hidden">Преимущества</h2>
+      <ul class="features__list">
+        <li class="features__item">
+          <h3 class="large-title features__large-title">
+            Быстро
+          </h3>
+          <p class="features__text">
+            Мы делаем свою работу быстро! Два часа
+            пролетят незаметно и вы счасливый
+            обладатель стильной стрижки-минутки!
           </p>
-          <time class="news__data" datetime="2018-01-11">11 января</time>
         </li>
-        <li class="news__item">
-          <p>
-            В нашей команде пополнение, Борис «Бритва» Стригунец,
-            обладатель множества титулов и наград пополнил наши стройные ряды
+        <li class="features__item">
+          <h3 class="large-title features__large-title">
+            Круто
+          </h3>
+          <p class="features__text">
+            Забудьте, как вы стриглись ранее
+            мы сделаем из вас звезду футбола или кино
+            во всяком случае внешне.
           </p>
-          <time class="news__data" datetime="2018-01-18">18 января</time>
+        </li>
+        <li class="features__item">
+          <h3 class="large-title features__large-title">
+            Дорого
+          </h3>
+          <p class="features__text">
+            Наши мастера - проффесионалы своего дела
+            не могут стоить дешево. К тому же, разве цена
+            не дает определенный статус?
+          </p>
         </li>
       </ul>
-      <a href="#" class="btn news__btn">Все новости</a>
-    </section>
-
-
-    <section class="photos-gallary">
-      <h2 class="large-title">Фотогалерея</h2>
-      <figure class="photos-gallary__gallery-photo">
-        <a href="#">
-          <img class="gallery-photo" src="img/interior.jpg" alt="Фотография интерьера">
-        </a>
-      </figure>
-      <button type="button" class="btn photos-gallary__btn">Назад</button>
-      <button type="button" class="btn photos-gallary__btn">Вперед</button>
     </section>
 
     <div class="index-columns">
-    <section class="contact-info">
-      <h2 class="large-title">Контактная информация</h2>
-      <p>Барбершоп «БОРОДИНСКИЙ»
-        <br>
-        Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8
-        <br>
-        Телефон: +7 (495) 666-02-66</p>
+      <section class="news">
+        <h2 class="large-title news__large-title">Новости</h2>
+        <ul class="news__list">
+          <li class="news__item">
+            <p class="news__text">
+              Нам наконец завезли ягермейстер!
+              Теперь вы можете пропустить стаканчик во время стрижки
+            </p>
+            <time class="news__data" datetime="2018-01-11">11 января</time>
+          </li>
+          <li class="news__item">
+            <p class="news__text">
+              В нашей команде пополнение, Борис «Бритва» Стригунец,
+              обладатель множества титулов и наград пополнил наши стройные ряды
+            </p>
+            <time class="news__data" datetime="2018-01-18">18 января</time>
+          </li>
+        </ul>
+        <a href="#" class="btn news__btn btn--middle">Все новости</a>
+      </section>
 
-      <p>Время работы:
-        <br>
-        пн-пт: с 10:00 ДО 22:00
-        <br>
-        сб-вс: с 10:00 ДО 19:00
-      </p>
 
-      <a href="#" class="btn contact-info__btn">Как проехать</a>
-      <a href="#" class="btn contact-info__btn">Обратная связь</a>
-    </section>
-  </div>
+      <section class="photos-gallary">
+        <h2 class="large-title photos-gallary__large-title">Фотогалерея</h2>
+        <figure class="photos-gallary__gallery-photo">
+          <a href="#">
+            <img class="gallery-photo" src="img/interior.jpg" alt="Фотография интерьера">
+          </a>
+        </figure>
+        <div class="wrapper-gallery-btn">
+          <button type="button" class="btn photos-gallary__btn btn--middle">Назад</button>
+          <button type="button" class="btn photos-gallary__btn btn--middle">Вперед</button>
+        </div>
+      </section>
+    </div>
 
+    <div class="index-columns index-columns--last">
+      <section class="contact-info">
+        <h2 class="large-title contact-info__large-title">Контактная информация</h2>
+        <p class="contact-info__text">Барбершоп «БОРОДИНСКИЙ»
+          <br>
+          Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8
+          <br>
+          Телефон: +7 (495) 666-02-66</p>
 
-    <section class="appointment">
-      <h2 class="large-title">Записаться</h2>
-      <p>Укажите желаемую дату или время и мы свяжемся с Вами для подтверждения брони</p>
-      <form class="appointment-form" action="#" method="post" >
-        <p>
-          <label class="form-input__label" for="data">Дата</label>
-          <input class="form-input" type="text" name="data" id="data" placeholder="08.10.2017">
+        <p class="contact-info__text">Время работы:
+          <br>
+          пн-пт: с 10:00 ДО 22:00
+          <br>
+          сб-вс: с 10:00 ДО 19:00
         </p>
-        <p>
-          <label class="form-input__label" for="time">Время</label>
-          <input class="form-input" type="text" name="time" id="time" placeholder="10:00">
-        </p>
-        <p>
-          <label class="form-input__label" for="name">Ваше имя</label>
-          <input class="form-input" type="text" name="name" id="name" placeholder="Борода">
-        </p>
-        <p>
-          <label class="form-input__label" for="phone">Телефон</label>
-          <input class="form-input" type="tel" name="phone" id="phone" placeholder="+7 123 456-78-90">
-        </p>
-        <button type="submit" class="btn appointment__btn">Отправить</button>
-      </form>
 
-    </section>
+
+          <a href="#" class="btn contact-info__btn btn--middle">Как проехать</a>
+          <a href="#" class="btn contact-info__btn btn--middle">Обратная связь</a>
+
+      </section>
+
+
+      <section class="appointment">
+        <h2 class="large-title appointment__large-title">Записаться</h2>
+        <p class="appointment__text">Укажите желаемую дату или время и мы свяжемся с Вами для подтверждения брони</p>
+        <form class="appointment-form" action="#" method="post">
+          <p class="appointment-form__item">
+            <label class="form-input__label appointment-form__label" for="data">Дата</label>
+            <input class="form-input" type="text" name="data" id="data" placeholder="08.10.2017">
+          </p>
+          <p class="appointment-form__item">
+            <label class="form-input__label appointment-form__label" for="time">Время</label>
+            <input class="form-input" type="text" name="time" id="time" placeholder="10:00">
+          </p>
+          <p class="appointment-form__item">
+            <label class="form-input__label appointment-form__label" for="name">Ваше имя</label>
+            <input class="form-input" type="text" name="name" id="name" placeholder="Борода">
+          </p>
+          <p class="appointment-form__item">
+            <label class="form-input__label appointment-form__label" for="phone">Телефон</label>
+            <input class="form-input" type="tel" name="phone" id="phone" placeholder="+7 123 456-78-90">
+          </p>
+          <button type="submit" class="btn appointment-form__btn btn--large">Отправить</button>
+        </form>
+      </section>
+    </div>
+
+
   </div>
 </main>
 

@@ -1,13 +1,28 @@
 .news {
+  width: 380px;
 
- &__list {
+  &__large-title {
+    margin-bottom: 20px;
+  }
 
- }
- &__item {
+  &__list {
+    @extend %reset-ul;
+  }
+  &__item {
+    margin-bottom: 20px;
+  }
 
- }
- &__data {
-  text-transform: lowercase;
- }
+  &__text {
+    @extend %reset-mp;
+  }
+
+  &__data {
+    text-transform: lowercase;
+
+  }
+
+  &__btn {
+    margin-bottom: 10px;
+  }
 
 }

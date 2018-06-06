@@ -1,6 +1,8 @@
 .form-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 15px;
   font: inherit;
-
   color: $color-two;
   border: 2px solid $color-two;
   background: #f9f6f3;
@@ -32,4 +34,6 @@
   &--pass {
 
   }
+
+
 }

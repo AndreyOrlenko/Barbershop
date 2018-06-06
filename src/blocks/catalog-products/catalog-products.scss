@@ -1,3 +1,26 @@
 .catalog-products {
+  width: 700px;
 
+  &__list {
+    @extend %reset-ul;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+
+
+  &__pagination {
+    @extend %reset-ul;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__product-card {
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    margin-right: 7px;
+  }
 }

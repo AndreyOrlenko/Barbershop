@@ -1,0 +1,17 @@
+.about-us {
+
+  &__middle-title {
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    width: 380px;
+    display: inline-block;
+    @extend %reset-mp;
+
+    &--margin-right {
+      margin-right: 100px;
+    }
+
+  }
+}

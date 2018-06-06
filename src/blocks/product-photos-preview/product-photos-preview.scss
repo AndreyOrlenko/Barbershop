@@ -1,0 +1,11 @@
+.product-photos-preview {
+  width: 460px;
+  min-height: 668px;
+  @extend %reset-ul;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
+
+
+}

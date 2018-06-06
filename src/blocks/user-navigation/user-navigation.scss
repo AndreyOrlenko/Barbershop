@@ -1,9 +1,31 @@
 .user-navigation {
 
-  &__link {
-    color: inherit;
+  max-width: 140px;
+  text-align: center;
 
-    &:hover,&:active,&:focus {
+  @extend %reset-ul;
+
+  &__link {
+    display: block;
+    position: relative;
+    padding: 25px 20px 27px 53px;
+    color: inherit;
+    &:hover::before {
+      opacity: 0.3;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 29px;
+      left: 25px;
+      width: 14px;
+      height: 14px;
+
+      background-image: url("login.svg");
+    }
+
+    &:hover, &:active, &:focus {
       background: $color-bg-hover-link;
     }
 

@@ -4,10 +4,15 @@ color: $color-one;
   &--large {
     width: 368px;
     height: 153px;
+    order: 4;
+    align-self: center;
   }
 
   &--small {
     width: 111px;
     height: 24px;
+    padding: 23px 0 26px 20px;
   }
+
+
  }

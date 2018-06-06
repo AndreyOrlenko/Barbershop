@@ -1,3 +1,17 @@
 .copyright {
+  width: 140px;
+  @extend %reset-mp;
+  text-align: center;
 
+  &__text {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__btn {
+    margin-bottom: 10px;
+  }
 }
+
+
+

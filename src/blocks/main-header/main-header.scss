@@ -1,7 +1,14 @@
 .main-header {
 
 
-  &__main-logo {
+  &--black-bg {
+    background: $color-two;
+  }
 
+  &--m-b-75px {
+    margin-bottom: 75px;
+  }
+  &--m-b-55px {
+    margin-bottom: 55px;
   }
 }

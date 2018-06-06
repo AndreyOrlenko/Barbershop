@@ -1,6 +1,17 @@
 .index-columns {
+  display: flex;
+  justify-content: space-between;
+  min-height: 420px;
+  margin-bottom: 37px;
+  padding: 50px 80px 0 80px;
+
   color: $color-two;
-  background: #f8f5f2 url("pattern.jpg") repeat;
+  background-color: #f8f5f2;
+  background-image: url("columns-line.png"), url("pattern.jpg");
+  background-repeat: no-repeat, repeat;
+  background-position: center, 0 0;
 
-
+&--last {
+  margin-bottom: 65px;
+}
 }

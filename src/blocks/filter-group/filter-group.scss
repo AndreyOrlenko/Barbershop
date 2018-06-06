@@ -1,4 +1,12 @@
 .filter-group {
+  @extend %reset-mp;
+  border: none;
 
+  &__middle-title {
+    margin-bottom: 30px;
+  }
 
+  &__list {
+    @extend %reset-ul;
+  }
 }

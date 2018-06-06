@@ -1,9 +1,11 @@
 .main-navigation {
+  display: flex;
+
+
   font-size: 16px;
 
   color: $color-one;
-
-  background: $color-two;
+  background: transparent;
 
   &--lh-24 {
     line-height: 24px;
@@ -11,5 +13,9 @@
 
   &--lh-20 {
     line-height: 20px;
+  }
+
+  &--column {
+    flex-direction: column;
   }
 }

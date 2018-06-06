@@ -12,227 +12,240 @@
 
 @include('template/catalog-header.html')
 
-<main>
+<main class="main-catalog">
+  <div class="container">
+    <h1 class="large-title page-inner__large-title">Средства для ухода</h1>
+    <ul class="bradecrumbs main-catalog__bradecrumbs  bradecrumbs--lh-20">
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link" href="#">Главная</a>
+      </li>
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link" href="#">Магазин</a>
+      </li>
+      <li class="bradecrumbs__item">
+        <a class="bradecrumbs__link bradecrumbs__link--current">
+          Средства для ухода
+        </a>
+      </li>
+    </ul>
 
-  <h1 class="large-title">Средства для ухода</h1>
-  <ul class="bradecrumbs bradecrumbs--lh-20">
-    <li>
-      <a class="bradecrumbs__link" href="#">Главная</a>
-    </li>
-    <li>
-      <a class="bradecrumbs__link" href="#">Магазин</a>
-    </li>
-    <li class="bradecrumbs__link bradecrumbs__link--current">
-      Средства для ухода
-    </li>
-  </ul>
+    <div class="wrapper-columns">
+      <section class="filter">
+        <h2 class="g-hidden">Фильтер товаров</h2>
+        <form class="filter-form" action="#" method="get">
+          <fieldset class="filter-group filter-form__filter-group">
+            <legend class="middle-title filter-group__middle-title">Производители:</legend>
+            <ul class="filter-group__list">
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="checkbox" name="baxter" id="baxter">
+                  <label class="form-input__label form-input__label--checkbox" for="baxter">
+                    Baxter of California
+                  </label>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="checkbox" name="mrnatty" id="mrnatty">
+                  <label class="form-input__label form-input__label--checkbox" for="mrnatty">
+                    Mr Natty
+                  </label>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="checkbox" name="suavecito" id="suavecito">
+                  <label class="form-input__label form-input__label--checkbox" for="suavecito">
+                    Suavecito
+                  </label>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="checkbox" name="malin+goetz" id="malin+goetz">
+                  <label class="form-input__label form-input__label--checkbox" for="malin+goetz">
+                    Malin+Goetz
+                  </label>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="checkbox" name="murrays" id="murrays">
+                  <label class="form-input__label form-input__label--checkbox" for="murrays">
+                    Murray’s
+                  </label>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="checkbox" name="americancrew" id="americancrew">
+                  <label class="form-input__label form-input__label--checkbox" for="americancrew">
+                    American Crew
+                  </label>
+                </p>
+              </li>
+            </ul>
+          </fieldset>
 
-  <section class="filter">
-    <h2 class="g-hidden">Фильтер товаров</h2>
-    <form class="filter-form" action="#" method="get">
-      <fildset class="filter-group">
-        <legend class="middle-title">Производители:</legend>
-        <ul>
-          <li>
-            <p>
-              <input class="form-input g-hidden" type="checkbox" name="baxter" id="baxter">
-              <label class="form-input__label form-input__label--checkbox" for="baxter">
-                Baxter of California
-              </label>
+
+          <fieldset class="filter-group filter-form__filter-group">
+            <legend class="middle-title filter-group__middle-title">Группы товаров</legend>
+            <ul class="filter-group__list">
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="radio" name="type-product" id="shavingaccessories">
+                  <label class="form-input__label form-input__label--radio" for="shavingaccessories">
+                    Бритвенные
+                    принадлежности
+                  </label>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="radio" name="type-product" id="careproducts">
+                  <label class="form-input__label form-input__label--radio" for="careproducts">
+                    Средства для ухода
+                  </label>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <input class="form-input g-hidden" type="radio" name="type-product" id="accessories">
+                  <label class="form-input__label form-input__label--radio" for="accessories">
+                    Аксессуары
+                  </label>
+                </p>
+              </li>
+            </ul>
+          </fieldset>
+
+          <button class="btn filter-form__btn" type="submit">Показать</button>
+        </form>
+      </section>
+
+      <section class="catalog-products">
+        <h2 class="g-hidden">Каталог товаров</h2>
+        <ul class="catalog-products__list">
+
+          <li class="product-card catalog-products__product-card product-card--middle">
+            <a class="product-card__content" href="product.html">
+              <h3 class="product-card__title">
+                <span class="product-card__title-part-one">Набор для путешествий</span>
+                <span class="product-card__title-part-two">«Baxter of California»</span>
+              </h3>
+              <p class="image-product-cart product-card__image-product-cart">
+                <img src="img/set.jpg" alt="Фотография набора">
+              </p>
+            </a>
+            <p class="product-card__buy">
+              <b class="price">2900₽</b>
+              <a class="btn" href="product.html">Купить</a>
             </p>
           </li>
-          <li>
-            <p>
-              <input class="form-input g-hidden" type="checkbox" name="mrnatty" id="mrnatty">
-              <label class="form-input__label form-input__label--checkbox" for="mrnatty">
-                Mr Natty
-              </label>
+
+          <li class="product-card catalog-products__product-card product-card--middle">
+            <a class="product-card__content" href="product.html">
+              <h3 class="product-card__title">
+                <span class="product-card__title-part-one">Увлажняющий кондиционер</span>
+                <span class="product-card__title-part-two">«Baxter of California»</span>
+              </h3>
+
+              <p class="image-product-cart product-card__image-product-cart">
+                <img src="img/condition.jpg" alt="Фотография бутылки с кондиционером">
+              </p>
+            </a>
+            <p class="product-card__buy">
+              <b class="price">750₽</b>
+              <a class="btn" href="product.html">Купить</a>
             </p>
           </li>
-          <li>
-            <p>
-              <input class="form-input g-hidden" type="checkbox" name="suavecito" id="suavecito">
-              <label class="form-input__label form-input__label--checkbox" for="suavecito">
-                Suavecito
-              </label>
+
+          <li class="product-card catalog-products__product-card product-card--middle">
+            <a class="product-card__content" href="product.html">
+              <h3 class="product-card__title">
+                <span class="product-card__title-part-one">Гель для волос</span>
+                <span class="product-card__title-part-two">«Suavecito»</span>
+              </h3>
+              <p class="image-product-cart product-card__image-product-cart ">
+                <img src="img/gel.jpg" alt="Фотография баночки с гелем">
+              </p>
+            </a>
+
+            <p class="product-card__buy">
+              <b class="price">290₽</b>
+              <a class="btn" href="product.html">Купить</a>
             </p>
           </li>
-          <li>
-            <p>
-              <input class="form-input g-hidden" type="checkbox" name="malin+goetz" id="malin+goetz">
-              <label class="form-input__label form-input__label--checkbox" for="malin+goetz">
-                Malin+Goetz
-              </label>
+
+          <li class="product-card catalog-products__product-card product-card--middle">
+            <a class="product-card__content" href="product.html">
+              <h3 class="product-card__title">
+                <span class="product-card__title-part-one">Глина для укладки волос</span>
+                <span class="product-card__title-part-two">«American crew»</span>
+              </h3>
+              <p class="image-product-cart product-card__image-product-cart">
+                <img src="img/gel-for-hair.jpg" alt="Фотография баночки с глиной">
+              </p>
+            </a>
+
+            <p class="product-card__buy">
+              <b class="price">500₽</b>
+              <a class="btn" href="product.html">Купить</a>
             </p>
           </li>
-          <li>
-            <p>
-              <input class="form-input g-hidden" type="checkbox" name="murrays" id="murrays">
-              <label class="form-input__label form-input__label--checkbox" for="murrays">
-                Murray’s
-              </label>
+
+          <li class="product-card catalog-products__product-card product-card--middle">
+            <a class="product-card__content" href="product.html">
+              <h3 class="product-card__title">
+                <span class="product-card__title-part-one">Гель для волос</span>
+                <span class="product-card__title-part-two">«American crew»</span>
+              </h3>
+              <p class="image-product-cart product-card__image-product-cart">
+                <img src="img/gel-for-hair-american.jpg" alt="Фотография тюбика с гелем">
+              </p>
+            </a>
+
+            <p class="product-card__buy">
+              <b class="price">300₽</b>
+              <a class="btn" href="product.html">Купить</a>
             </p>
           </li>
-          <li>
-            <p>
-              <input class="form-input g-hidden" type="checkbox" name="americancrew" id="americancrew">
-              <label class="form-input__label form-input__label--checkbox" for="americancrew">
-                American Crew
-              </label>
+          <li class="product-card catalog-products__product-card product-card--middle">
+            <a class="product-card__content" href="product.html">
+              <h3 class="product-card__title">
+                <span class="product-card__title-part-one">Набор для бритья</span>
+                <span class="product-card__title-part-two">«Baxter of California»</span>
+              </h3>
+              <p class="image-product-cart product-card__image-product-cart">
+                <img src="img/shaving-kit.jpg" alt="Бритвенный набор">
+              </p>
+            </a>
+
+            <p class="product-card__buy">
+              <b class="price">3900₽</b>
+              <a class="btn" href="product.html">Купить</a>
             </p>
           </li>
         </ul>
-      </fildset>
 
-
-      <fildset class="filter-group">
-        <legend class="middle-title">Группы товаров</legend>
-        <p>
-          <input class="form-input g-hidden" type="radio" name="type-product" id="shavingaccessories">
-          <label class="form-input__label form-input__label--radio" for="shavingaccessories">
-            Бритвенные
-            принадлежности
-          </label>
-        </p>
-        <p>
-          <input class="form-input g-hidden" type="radio" name="type-product" id="careproducts">
-          <label class="form-input__label form-input__label--radio" for="careproducts">
-            Средства для ухода
-          </label>
-        </p>
-        <p>
-          <input class="form-input g-hidden" type="radio" name="type-product" id="accessories">
-          <label class="form-input__label form-input__label--radio" for="accessories">
-            Аксессуары
-          </label>
-        </p>
-
-      </fildset>
-
-      <button class="btn filter-form__btn" type="submit">Показать</button>
-    </form>
-  </section>
-
-  <section class="catalog-products">
-    <h2 class="g-hidden">Каталог товаров</h2>
-    <ul class="catalog-list">
-
-      <li class="product-card">
-        <a class="product-card__content" href="product.html">
-          <h3 class="product-card__title" >
-            <span class="product-card__title-part-one">Набор для путешествий</span>
-            <span class="product-card__title-part-two">«Baxter of California»</span>
-          </h3>
-          <p>
-            <img class="image-product-cart" src="img/set.jpg" alt="Фотография набора">
-          </p>
-        </a>
-        <p>
-          <b class="price">2900₽</b>
-          <a class="btn" href="product.html">Купить</a>
-        </p>
-      </li>
-
-      <li class="product-card">
-        <a class="product-card__content" href="product.html">
-          <h3 class="product-card__title">
-            <span class="product-card__title-part-one">Увлажняющий кондиционер</span>
-            <span class="product-card__title-part-two">«Baxter of California»</span>
-          </h3>
-
-          <p>
-            <img class="image-product-cart" src="img/condition.jpg" alt="Фотография бутылки с кондиционером">
-          </p>
-        </a>
-        <p>
-          <b class="price">750₽</b>
-          <a class="btn" href="product.html">Купить</a>
-        </p>
-      </li>
-
-      <li class="product-card">
-        <a class="product-card__content" href="product.html">
-          <h3 class="product-card__title">
-            <span class="product-card__title-part-one">Гель для волос</span>
-            <span class="product-card__title-part-two">«Suavecito»</span>
-          </h3>
-          <p>
-            <img class="image-product-cart" src="img/gel.jpg" alt="Фотография баночки с гелем">
-          </p>
-        </a>
-
-        <p>
-          <b class="price">290₽</b>
-          <a class="btn" href="product.html">Купить</a>
-        </p>
-      </li>
-
-      <li class="product-card">
-        <a class="product-card__content" href="product.html">
-          <h3 class="product-card__title">
-            <span class="product-card__title-part-one">Глина для укладки волос</span>
-            <span class="product-card__title-part-two">«American crew»</span>
-          </h3>
-          <p>
-            <img  class="image-product-cart" src="img/gel-for-hair.jpg" alt="Фотография баночки с глиной">
-          </p>
-        </a>
-
-        <p>
-          <b class="price">500₽</b>
-          <a class="btn" href="product.html">Купить</a>
-        </p>
-      </li>
-
-      <li class="product-card">
-        <a class="product-card__content" href="product.html">
-          <h3 class="product-card__title">
-            <span class="product-card__title-part-one">Гель для волос</span>
-            <span class="product-card__title-part-two">«American crew»</span>
-          </h3>
-          <p>
-            <img class="image-product-cart" src="img/gel-for-hair-american.jpg" alt="Фотография тюбика с гелем">
-          </p>
-        </a>
-
-        <p>
-          <b class="price">300₽</b>
-          <a class="btn" href="product.html">Купить</a>
-        </p>
-      </li>
-      <li class="product-card">
-        <a class="product-card__content" href="product.html">
-          <h3 class="product-card__title">
-            <span class="product-card__title-part-one">Набор для бритья</span>
-            <span class="product-card__title-part-two">«Baxter of California»</span>
-          </h3>
-          <p>
-            <img class="image-product-cart" src="img/shaving-kit.jpg" alt="Бритвенный набор">
-          </p>
-        </a>
-
-        <p>
-          <b class="price">3900₽</b>
-          <a class="btn" href="product.html">Купить</a>
-        </p>
-      </li>
-    </ul>
-
-    <ul class="pagination">
-      <li>
-        <a class="btn" href="#">1</a>
-      </li>
-      <li>
-        <a class="btn btn--current">2</a>
-      </li>
-      <li>
-        <a class="btn" href="#">3</a>
-      </li>
-      <li>
-        <a class="btn" href="#">4</a>
-      </li>
-    </ul>
-  </section>
+        <ul class="catalog-products__pagination">
+          <li>
+            <a class="btn catalog-products__btn btn--small" href="#">1</a>
+          </li>
+          <li>
+            <a class="btn catalog-products__btn btn--small btn--current">2</a>
+          </li>
+          <li>
+            <a class="btn catalog-products__btn btn--small" href="#">3</a>
+          </li>
+          <li>
+            <a class="btn catalog-products__btn btn--small" href="#">4</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
 </main>
 
 @include('template/main-footer.html')

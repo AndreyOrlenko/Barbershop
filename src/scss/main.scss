@@ -12,6 +12,7 @@
 @import "../blocks/_custom/g-hidden.scss";
 @import "../blocks/large-title/large-title.scss";
 @import "../blocks/btn/btn.scss";
+@import "../blocks/container/container.scss";
 
 
 
@@ -19,6 +20,7 @@
 //main header
 @import "../blocks/main-header/main-header.scss";
 @import "../blocks/main-navigation/main-navigation.scss";
+@import "../blocks/wrapper-main-navigation/wrapper-main-navigation.scss";
 @import "../blocks/main-logo/main-logo.scss";
 @import "../blocks/site-navigation/site-navigation.scss";
 @import "../blocks/user-navigation/user-navigation.scss";
@@ -28,9 +30,12 @@
 @import "../blocks/features/features.scss";
 @import "../blocks/index-columns/index-columns.scss";
 @import "../blocks/news/news.scss";
+@import "../blocks/photos-gallary/photos-gallary.scss";
 @import "../blocks/gallery-photo/gallery-photo.scss";
+@import "../blocks/wrapper-btn/wrapper-btn";
 @import "../blocks/contact-info/contact-info.scss";
 @import "../blocks/appointment/appointment.scss";
+@import "../blocks/appointment-form/appointment-form.scss";
 @import "../blocks/form-input/form-input.scss";
 
 //main-footer
@@ -44,31 +49,39 @@
 @import "../blocks/image-map/image-map.scss";
 
 
-//main catalog
+//main main-catalog
+@import "../blocks/main-catalog/main-catalog";
 @import "../blocks/bradecrumbs/bradecrumbs.scss";
 @import "../blocks/middle-title/middle-title.scss";
+@import "../blocks/wrapper-columns/wrapper-columns";
+@import "../blocks/filter/filter.scss";
+@import "../blocks/filter-form/filter-form.scss";
+@import "../blocks/filter-group/filter-group.scss";
 @import "../blocks/catalog-products/catalog-products.scss";
 @import "../blocks/product-card/product-card.scss";
 @import "../blocks/image-product-cart/image-product-cart.scss";
 @import "../blocks/price/price.scss";
 
 
-//main product
+//main main-product
+@import "../blocks/main-product/main-product";
 @import "../blocks/product-photos/product-photos.scss";
+@import "../blocks/product-photos-preview/product-photos-preview.scss";
 @import "../blocks/product-card/product-card.scss";
 @import "../blocks/product-photo/product-photo.scss";
 @import "../blocks/product-description/product-description.scss";
+@import "../blocks/wrapper-product-description/wrapper-product-description.scss";
 @import "../blocks/product-price/product-price.scss";
 @import "../blocks/description-list/description-list.scss";
 
 
 //main price
+@import "../blocks/main-price/main-price";
 @import "../blocks/slogan/slogan.scss";
 @import "../blocks/top-brands/top-brands.scss";
 @import "../blocks/price-list/price-list.scss";
 @import "../blocks/table/table.scss";
-
-
+@import "../blocks/about-us/about-us.scss";
 
 
 

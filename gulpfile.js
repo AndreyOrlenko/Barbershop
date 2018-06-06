@@ -115,7 +115,7 @@ let config = {
   host: 'localhost',
   port: 9000,
   logPrefix: "Frontend_Devil",
-  open: true
+  open: false
 };
 //---------------------------------------------------------------------------------------------------------------
 
@@ -343,14 +343,15 @@ gulp.task('watch', function () {
 //---------------------------------------------SCSS-------------------------------
   watch([path.watchSrc.scss, path.watchSrc.scssBlocks],
       {
-        usePolling: true, interval: 50,
-        binaryInterval: 100,
-        alwaysStat: false,
-        depth: 5,
-        awaitWriteFinish: {
-          stabilityThreshold: 1000,
-          pollInterval: 50
-        }
+        usePolling: true,
+        // interval: 5,
+        // binaryInterval: 5,
+        // alwaysStat: true,
+        // depth: 2,
+        // awaitWriteFinish: {
+        //   stabilityThreshold: 5,
+        //   pollInterval: 5
+        // }
       }, function (file) {
 
         if (file.event === 'unlink') {

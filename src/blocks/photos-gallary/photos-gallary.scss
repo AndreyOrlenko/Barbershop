@@ -1,10 +1,15 @@
 .photos-gallary {
   width: 300px;
 
-  &__gallery-photo {
 
+  &__large-title{
+    margin-bottom: 20px;
+  }
+  &__gallery-photo {
+    @extend %reset-mp;
+    margin-bottom: 38px;
   }
   &__btn {
-
+    margin-bottom: 10px;
   }
 }
