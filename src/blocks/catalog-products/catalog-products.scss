@@ -4,7 +4,7 @@
   &__list {
     @extend %reset-ul;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 
@@ -18,6 +18,11 @@
 
   &__product-card {
     margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+  &__product-card:nth-child(3n) {
+    margin-right: 0px;
   }
 
   &__btn {

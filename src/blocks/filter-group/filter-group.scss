@@ -9,4 +9,12 @@
   &__list {
     @extend %reset-ul;
   }
+
+  &__item {
+    @extend %reset-mp;
+
+    &--m-b {
+      margin-bottom: 17px;
+    }
+  }
 }

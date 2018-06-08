@@ -9,6 +9,7 @@
   text-transform: uppercase;
   text-align: center;
   vertical-align: middle;
+  word-wrap: wrap;
 
   background: $color-two;
   color: $color-one;
@@ -45,6 +46,12 @@
 
   }
 
+  &__extra-middle {
+    min-width: 78px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
   &--middle {
     min-width: 140px;
     padding-right: 10px;
@@ -53,13 +60,15 @@
 
   &--large {
     width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   &--vk {
     background: $color-two url("vk-white.svg") no-repeat center center;;
     background-size: 27px 15px;
 
-    &:hover {
+    &:hover,&:focus {
       background: $color-one url("vk-black.svg") no-repeat center center;;
       background-size: 27px 15px;
     }
@@ -69,7 +78,7 @@
     background: $color-two url("fb-white.svg") no-repeat center center;;
     background-size: 27px 15px;
 
-    &:hover {
+    &:hover,&:focus {
       background: $color-one url("fb-black.svg") no-repeat center center;;
       background-size: 27px 15px;
     }
@@ -79,10 +88,14 @@
     background: $color-two url("inst-white.svg") no-repeat center center;;
     background-size: 27px 15px;
 
-    &:hover {
+    &:hover,&:focus {
       background: $color-one url("inst-black.svg") no-repeat center center;;
       background-size: 27px 15px;
     }
+  }
+
+  &-js-map {
+
   }
 }
 

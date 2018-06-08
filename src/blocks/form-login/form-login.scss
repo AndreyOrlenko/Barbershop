@@ -2,12 +2,28 @@
 
   &__btn {
 
+      }
+
+  &__item {
+    @extend %reset-mp;
+    margin-bottom: 9px;
+
+    &--flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--m-b-15 {
+      margin-bottom: 15px;
+    }
   }
 
   &__forgot-password {
     color: inherit;
-
     text-decoration: underline;
-
+    line-height: 20px;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

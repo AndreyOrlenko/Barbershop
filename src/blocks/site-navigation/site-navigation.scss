@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   width: 620px;
-  min-height: 72px;
   @extend %reset-ul;
 
   &__link {

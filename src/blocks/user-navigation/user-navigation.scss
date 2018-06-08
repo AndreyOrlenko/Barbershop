@@ -3,6 +3,7 @@
   max-width: 140px;
   text-align: center;
 
+
   @extend %reset-ul;
 
   &__link {
@@ -28,6 +29,7 @@
     &:hover, &:active, &:focus {
       background: $color-bg-hover-link;
     }
+
 
   }
 }

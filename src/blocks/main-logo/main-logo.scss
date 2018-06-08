@@ -1,5 +1,6 @@
 .main-logo {
 color: $color-one;
+  display: block;
 
   &--large {
     width: 368px;
@@ -11,7 +12,7 @@ color: $color-one;
   &--small {
     width: 111px;
     height: 24px;
-    padding: 23px 0 26px 20px;
+    padding: 23px 20px 26px 20px;
   }
 
 

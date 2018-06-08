@@ -17,15 +17,15 @@
     <h1 class="large-title page-inner__large-title">Набор для путешествий «Baxter of California»</h1>
     <ul class="bradecrumbs main-product__bradecrumbs bradecrumbs--lh-24">
       <li class="bradecrumbs__item">
-        <a class="bradecrumbs__link" href="#">Главная</a>
+        <a class="bradecrumbs__link" href="index.html">Главная</a>
       </li>
       <li class="bradecrumbs__item">
-        <a class="bradecrumbs__link" href="#">Магазин</a>
+        <a class="bradecrumbs__link" href="catalog.html">Магазин</a>
       </li>
       <li class="bradecrumbs__item">
         <a class="bradecrumbs__link" href="#">Средства для ухода</a>
       </li>
-      <li class="bradecrumbs__item">
+      <li class="bradecrumbs__item bradecrumbs__item--current">
         <a class="bradecrumbs__link bradecrumbs__link--current">Набор для путешествий «Baxter of California»</a>
       </li>
     </ul>
@@ -33,20 +33,20 @@
     <div class="wrapper-columns">
       <section class="product-photos">
         <h2 class="g-hidden">Фотографии товара</h2>
-        <ul class="product-photos-preview">
+        <ul class="product-photos-preview product-photos__product-photos-preview">
           <li class="product-card product-photos-preview__product-card product-card--large">
-            <p class="product-photo product-photo--mp-reset product-photo--big">
+            <p class="product-photo product-photos-preview__product-photo product-photo--mp-reset">
               <img src="img/product-photo-big.jpg" alt="Общая фотография товара">
             </p>
           </li>
           <li class="product-card product-photos-preview__product-card product-card--small">
-            <img class="product-photo" src="img/product-photo-small-1.jpg" alt="Фотография в профиль">
+            <img class="product-photo product-photos-preview__product-photo" src="img/product-photo-small-1.jpg" alt="Фотография в профиль">
           </li>
           <li class="product-card product-photos-preview__product-card product-card--small">
-            <img class="product-photo" src="img/product-photo-small-2.jpg" alt="Фотография в анфас">
+            <img class="product-photo product-photos-preview__product-photo" src="img/product-photo-small-2.jpg" alt="Фотография в анфас">
           </li>
           <li class="product-card product-photos-preview__product-card product-card--small">
-            <img class="product-photo" src="img/product-photo-small-3.jpg" alt="Фото отдельной части">
+            <img class="product-photo product-photos-preview__product-photo" src="img/product-photo-small-3.jpg" alt="Фото отдельной части">
           </li>
         </ul>
 
@@ -67,8 +67,7 @@
           подарком.</p>
 
         <p class="product-price product-description__product-price">
-          <b class="price">2900₽</b>
-          <button class="btn">Купить</button>
+          <b class="price">2900₽</b><button class="btn btn__extra-middle">Купить</button>
         </p>
 
         <h3 class="middle-title product-description__middle-title">В набор входят:</h3>
@@ -80,13 +79,13 @@
           <li class="product-description__item">
             Увлажняющий крем (50 мл)
           </li>
-          <li class="product-composition-list__item">
+          <li class="product-description__item">
             Крем для бритья (50 мл)
           </li>
-          <li class="product-composition-list__item">
+          <li class="product-description__item">
             Крем после бритья, шампунь (50 мл)
           </li>
-          <li class="product-composition-list__item">
+          <li class="product-description__item">
             Удобная кожаная косметичка
           </li>
         </ul>
@@ -99,8 +98,6 @@
 
 @include('template/modal-login.html')
 
-@include('template/modal-map.html')
-
-<script src="#"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

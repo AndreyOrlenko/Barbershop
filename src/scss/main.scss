@@ -1,6 +1,7 @@
 @import "../blocks/_custom/variables.scss";
 @import "../blocks/_custom/mixins.scss";
 @import "../blocks/_custom/style-optimization.scss";
+@import "../blocks/_custom/keyframes.scss";
 
 
 //pages
@@ -37,6 +38,7 @@
 @import "../blocks/appointment/appointment.scss";
 @import "../blocks/appointment-form/appointment-form.scss";
 @import "../blocks/form-input/form-input.scss";
+
 
 //main-footer
 @import "../blocks/main-footer/main-footer.scss";
@@ -79,9 +81,17 @@
 @import "../blocks/main-price/main-price";
 @import "../blocks/slogan/slogan.scss";
 @import "../blocks/top-brands/top-brands.scss";
+@import "../blocks/brands-list/brands-list.scss";
 @import "../blocks/price-list/price-list.scss";
 @import "../blocks/table/table.scss";
 @import "../blocks/about-us/about-us.scss";
+
+
+//modal
+@import "../blocks/modal-overlay/modal-overlay.scss";
+@import "../blocks/modal/modal.scss";
+@import "../blocks/form-login/form-login.scss";
+@import "../blocks/image-map/image-map.scss";
 
 
 

@@ -1,8 +1,31 @@
 .slogan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   @extend %reset-mp;
   font-size: 48px;
   line-height: 48px;
-
   text-align: center;
+
+  &::before {
+    content: '';
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 50px;
+    height: 2px;
+    margin-right: 25px;
+    background: $color-two;
+  }
+
+  &::after {
+    content: '';
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 50px;
+    height: 2px;
+    margin-left: 25px;
+    background: $color-two;
+  }
 
 }

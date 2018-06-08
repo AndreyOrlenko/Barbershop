@@ -1,0 +1,25 @@
+.brands-list {
+  @extend %reset-ul;
+
+
+  &__item {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 20px;
+   &:last-child {
+     margin-bottom: 0px;
+   }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      margin-top: -4px;
+      background: $color-two;
+      transform: rotate(45deg);
+    }
+  }
+}

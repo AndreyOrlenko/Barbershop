@@ -1,26 +1,90 @@
 .modal {
-
+  position: relative;
   color: $color-two;
 
-  &__overlay {
-
+  &__large-title {
+    margin-bottom: 15px;
   }
+
+  &__text {
+    @extend %reset-mp;
+    margin-bottom: 10px;
+  }
+
+  &__form-login {
+    margin-bottom: 58px;
+  }
+
+  &__image-map {
+    margin-bottom: -7px;
+  }
+
   &__close {
+    position: absolute;
+    top: 7px;
+    right: -33px;
+    width: 19px;
+    height: 19px;
     background: transparent;
     border: none;
-
     cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 4px;
+      height: 24px;
+      margin-top: -12px;
+      margin-left: -2px;
+      background: #d0d0d0;
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 4px;
+      height: 24px;
+      margin-top: -12px;
+      margin-left: -2px;
+      background: #d0d0d0;
+      border-radius: 1px;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__iframe {
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+
   }
 
   &--login {
+    width: 300px;
+    padding: 45px 80px 0 80px;
     background: #f8f5f2 url("pattern.jpg") repeat 0 0;
+    box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.75);
+    //animation-name: dropping;
+    //animation-duration: 1s;
+
   }
 
   &--map {
-    width: 768px;
-    height: 560px;
+    width: 70%;
+    height:0;
+    padding-bottom:45.25%;
 
+    box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.75);
     background: #aba9a7;
+
 
 
 

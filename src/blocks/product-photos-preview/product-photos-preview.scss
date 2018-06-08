@@ -1,11 +1,17 @@
 .product-photos-preview {
   width: 460px;
-  min-height: 668px;
   @extend %reset-ul;
   display: flex;
   justify-content: space-between;
   align-content: space-between;
   flex-wrap: wrap;
 
+  &__product-card {
+    margin-bottom: 21px;
+  }
+
+  &__product-photo {
+    margin-bottom: -6px;
+  }
 
 }

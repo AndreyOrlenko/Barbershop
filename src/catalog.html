@@ -17,12 +17,12 @@
     <h1 class="large-title page-inner__large-title">Средства для ухода</h1>
     <ul class="bradecrumbs main-catalog__bradecrumbs  bradecrumbs--lh-20">
       <li class="bradecrumbs__item">
-        <a class="bradecrumbs__link" href="#">Главная</a>
+        <a class="bradecrumbs__link" href="index.html">Главная</a>
       </li>
       <li class="bradecrumbs__item">
-        <a class="bradecrumbs__link" href="#">Магазин</a>
+        <a class="bradecrumbs__link" href="catalog.html">Магазин</a>
       </li>
-      <li class="bradecrumbs__item">
+      <li class="bradecrumbs__item bradecrumbs__item--current">
         <a class="bradecrumbs__link bradecrumbs__link--current">
           Средства для ухода
         </a>
@@ -37,49 +37,55 @@
             <legend class="middle-title filter-group__middle-title">Производители:</legend>
             <ul class="filter-group__list">
               <li>
-                <p>
+                <p class="filter-group__item filter-group__item--m-b">
                   <input class="form-input g-hidden" type="checkbox" name="baxter" id="baxter">
                   <label class="form-input__label form-input__label--checkbox" for="baxter">
+                    <span class="form-input__checkbox"></span>
                     Baxter of California
                   </label>
                 </p>
               </li>
               <li>
-                <p>
+                <p class="filter-group__item filter-group__item--m-b">
                   <input class="form-input g-hidden" type="checkbox" name="mrnatty" id="mrnatty">
                   <label class="form-input__label form-input__label--checkbox" for="mrnatty">
+                    <span class="form-input__checkbox"></span>
                     Mr Natty
                   </label>
                 </p>
               </li>
               <li>
-                <p>
+                <p class="filter-group__item filter-group__item--m-b">
                   <input class="form-input g-hidden" type="checkbox" name="suavecito" id="suavecito">
                   <label class="form-input__label form-input__label--checkbox" for="suavecito">
+                    <span class="form-input__checkbox"></span>
                     Suavecito
                   </label>
                 </p>
               </li>
               <li>
-                <p>
-                  <input class="form-input g-hidden" type="checkbox" name="malin+goetz" id="malin+goetz">
+                <p class="filter-group__item filter-group__item--m-b">
+                  <input class="form-input g-hidden" type="checkbox" name="malin+goetz" id="malin+goetz" disabled>
                   <label class="form-input__label form-input__label--checkbox" for="malin+goetz">
+                    <span class="form-input__checkbox"></span>
                     Malin+Goetz
                   </label>
                 </p>
               </li>
               <li>
-                <p>
+                <p class="filter-group__item filter-group__item--m-b">
                   <input class="form-input g-hidden" type="checkbox" name="murrays" id="murrays">
                   <label class="form-input__label form-input__label--checkbox" for="murrays">
+                    <span class="form-input__checkbox"></span>
                     Murray’s
                   </label>
                 </p>
               </li>
               <li>
-                <p>
+                <p class="filter-group__item">
                   <input class="form-input g-hidden" type="checkbox" name="americancrew" id="americancrew">
                   <label class="form-input__label form-input__label--checkbox" for="americancrew">
+                    <span class="form-input__checkbox"></span>
                     American Crew
                   </label>
                 </p>
@@ -92,9 +98,10 @@
             <legend class="middle-title filter-group__middle-title">Группы товаров</legend>
             <ul class="filter-group__list">
               <li>
-                <p>
+                <p class="filter-group__item filter-group__item--m-b">
                   <input class="form-input g-hidden" type="radio" name="type-product" id="shavingaccessories">
                   <label class="form-input__label form-input__label--radio" for="shavingaccessories">
+                    <span class="form-input__radio"></span>
                     Бритвенные
                     принадлежности
                   </label>
@@ -102,17 +109,19 @@
               </li>
 
               <li>
-                <p>
+                <p class="filter-group__item filter-group__item--m-b">
                   <input class="form-input g-hidden" type="radio" name="type-product" id="careproducts">
                   <label class="form-input__label form-input__label--radio" for="careproducts">
+                    <span class="form-input__radio"></span>
                     Средства для ухода
                   </label>
                 </p>
               </li>
               <li>
-                <p>
+                <p class="filter-group__item">
                   <input class="form-input g-hidden" type="radio" name="type-product" id="accessories">
                   <label class="form-input__label form-input__label--radio" for="accessories">
+                    <span class="form-input__radio"></span>
                     Аксессуары
                   </label>
                 </p>
@@ -120,7 +129,7 @@
             </ul>
           </fieldset>
 
-          <button class="btn filter-form__btn" type="submit">Показать</button>
+          <button class="btn filter-form__btn btn--middle" type="submit">Показать</button>
         </form>
       </section>
 
@@ -138,9 +147,8 @@
                 <img src="img/set.jpg" alt="Фотография набора">
               </p>
             </a>
-            <p class="product-card__buy">
-              <b class="price">2900₽</b>
-              <a class="btn" href="product.html">Купить</a>
+            <p class="product-price product-card__product-price">
+              <b class="price">2900₽</b><a class="btn btn__extra-middle" href="product.html">Купить</a>
             </p>
           </li>
 
@@ -155,9 +163,8 @@
                 <img src="img/condition.jpg" alt="Фотография бутылки с кондиционером">
               </p>
             </a>
-            <p class="product-card__buy">
-              <b class="price">750₽</b>
-              <a class="btn" href="product.html">Купить</a>
+            <p class="product-price product-card__product-price">
+              <b class="price">750₽</b><a class="btn btn__extra-middle" href="product.html">Купить</a>
             </p>
           </li>
 
@@ -172,9 +179,8 @@
               </p>
             </a>
 
-            <p class="product-card__buy">
-              <b class="price">290₽</b>
-              <a class="btn" href="product.html">Купить</a>
+            <p class="product-price product-card__product-price">
+              <b class="price">290₽</b><a class="btn btn__extra-middle" href="product.html">Купить</a>
             </p>
           </li>
 
@@ -189,9 +195,8 @@
               </p>
             </a>
 
-            <p class="product-card__buy">
-              <b class="price">500₽</b>
-              <a class="btn" href="product.html">Купить</a>
+            <p class="product-price product-card__product-price">
+              <b class="price">500₽</b><a class="btn btn__extra-middle" href="product.html">Купить</a>
             </p>
           </li>
 
@@ -206,9 +211,8 @@
               </p>
             </a>
 
-            <p class="product-card__buy">
-              <b class="price">300₽</b>
-              <a class="btn" href="product.html">Купить</a>
+            <p class="product-price product-card__product-price">
+              <b class="price">300₽</b><a class="btn btn__extra-middle" href="product.html">Купить</a>
             </p>
           </li>
           <li class="product-card catalog-products__product-card product-card--middle">
@@ -222,9 +226,8 @@
               </p>
             </a>
 
-            <p class="product-card__buy">
-              <b class="price">3900₽</b>
-              <a class="btn" href="product.html">Купить</a>
+            <p class="product-price product-card__product-price">
+              <b class="price">3900₽</b><a class="btn btn__extra-middle" href="product.html">Купить</a>
             </p>
           </li>
         </ul>
@@ -249,11 +252,9 @@
 </main>
 
 @include('template/main-footer.html')
+
 @include('template/modal-login.html')
 
-@include('template/modal-map.html')
-
-
-<script src="#"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

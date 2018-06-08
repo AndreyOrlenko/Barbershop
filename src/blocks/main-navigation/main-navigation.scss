@@ -7,6 +7,10 @@
   color: $color-one;
   background: transparent;
 
+  &__user-navigation {
+    margin-left: auto;
+  }
+
   &--lh-24 {
     line-height: 24px;
   }

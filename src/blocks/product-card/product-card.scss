@@ -17,7 +17,7 @@
 
   &__title {
     margin: 0;
-    padding: 0 15px;
+    padding: 0 16px;
     font: inherit;
 
   }
@@ -42,7 +42,7 @@
 
   &--small {
     width: 140px;
-    height: 149px;
+
 
   }
 
@@ -52,8 +52,12 @@
   }
   &--large {
     width: 460px;
-    height: 498px;
 
+
+  }
+
+  &__product-price {
+    margin: 0 16px 16px 16px;
   }
 
 }

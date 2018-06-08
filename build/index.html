@@ -105,7 +105,7 @@
             <img class="gallery-photo" src="img/interior.jpg" alt="Фотография интерьера">
           </a>
         </figure>
-        <div class="wrapper-gallery-btn">
+        <div class="wrapper-btn">
           <button type="button" class="btn photos-gallary__btn btn--middle">Назад</button>
           <button type="button" class="btn photos-gallary__btn btn--middle">Вперед</button>
         </div>
@@ -129,7 +129,7 @@
         </p>
 
 
-          <a href="#" class="btn contact-info__btn btn--middle">Как проехать</a>
+          <a href="#" class="btn contact-info__btn btn--middle btn-js-map">Как проехать</a>
           <a href="#" class="btn contact-info__btn btn--middle">Обратная связь</a>
 
       </section>
@@ -195,46 +195,51 @@
   </div>
 </footer>
 
-<div class="modal__overlay">
+<div class="modal-overlay modal-overlay--login modal-overlay--hidden">
   <section class="modal modal--login">
-    <h2>Личный кабинет</h2>
-    <p>Введите пожалуйста свой логин и пароль</p>
-    <form class="form-login" action="#" method="post">
-      <p>
+    <h2 class="large-title modal__large-title">Личный кабинет</h2>
+    <p class="modal__text">Введите пожалуйста свой логин и пароль</p>
+    <form class="form-login modal__form-login" action="#" method="post">
+      <p class="form-login__item">
         <label class="g-hidden" for="login">
           Логин
         </label>
         <input class="form-input form-input--login" type="text" name="login" id="login" placeholder="Логин">
 
       </p>
-      <p>
+      <p class="form-login__item form-login__item--m-b-15">
         <label class="g-hidden" for="pass">
           Пароль
         </label>
         <input class="form-input form-input--pass" type="password" name="pass" id="pass" placeholder="Пароль">
 
       </p>
-      <p>
-        <input class="g-hidden" type="checkbox" name="remember-me" id="remember-me">
-        <label class="form-input__label form-input__label--checkbox" for="remember-me">Запомните меня</label>
+      <p class="form-login__item form-login__item--m-b-15 form-login__item--flex">
+        <input class="form-input g-hidden" type="checkbox" name="remember-me" id="remember-me">
+        <label class="form-input__label form-input__label--checkbox" for="remember-me">
+          <span class="form-input__checkbox"></span>
+          Запомните меня
+        </label>
 
         <a class="form-login__forgot-password" href="#">Я забыл пароль!</a>
       </p>
-      <button class="btn form-login__btn" type="submit">Войти</button>
+      <button class="btn form-login__btn btn--large" type="submit">Войти</button>
     </form>
-    <button class="modal__close">Закрыть</button>
+    <button class="modal__close"><span class="g-hidden">Закрыть</span></button>
   </section>
 </div>
 
-<div class="modal__overlay">
-<section class="modal modal--map">
-  <h2 class="g-hidden">Как до нас добраться</h2>
-  <img class="image-map" src="img/map.jpg" alt="Адрес: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
-  <button class="modal__close">Закрыть</button>
-</section>
+<div class="modal-overlay modal-overlay--map modal-overlay--hidden">
+  <section class="modal modal--map">
+    <h2 class="g-hidden">Как до нас добраться</h2>
+    <iframe class="modal__iframe"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5989424123993!2d30.320894616089525!3d59.9387968690479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0KDQvtGB0YHQuNGPLCAxOTExODY!5e0!3m2!1sru!2ssg!4v1528458681226"
+       frameborder="0" style="border:0" allowfullscreen></iframe>
+    <button class="modal__close"><span class="g-hidden">Закрыть</span></button>
+  </section>
 </div>
 
-
+<script src="js/main.js"></script>
 </body>
 </html>
 

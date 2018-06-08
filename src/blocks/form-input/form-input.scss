@@ -10,10 +10,29 @@
   &:focus {
     border-color: $color-bg-hover-btn;
   }
+
+  &:focus + &__label &__checkbox, &:focus + &__label &__radio {
+    border-color: $color-bg-hover-btn;
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
   &:disabled + &__label {
     color: $color-two;
     opacity: 0.5;
     cursor: auto;
+  }
+
+  &:checked + &__label &__checkbox {
+    &::before, &::after {
+      display: block;
+    }
+  }
+  &:checked + &__label &__radio {
+    &::before {
+      display: block;
+    }
+
   }
 
   &__label {
@@ -25,15 +44,93 @@
     &:hover {
       color: $color-bg-hover-btn;
     }
+
+    &--checkbox {
+      line-height: 20px;
+    }
+
+    &--radio {
+      line-height: 20px;
+      display: flex;
+    }
+  }
+
+  &__checkbox {
+    display: block;
+    position: relative;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-right: 23px;
+    border: 2px solid $color-two;
+
+    &::before {
+      content: '';
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -1px;
+      margin-top: -7px;
+      width: 2px;
+      height: 14px;
+      background: $color-two;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      content: '';
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -1px;
+      margin-top: -7px;
+      width: 2px;
+      height: 14px;
+      background: $color-two;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__radio {
+    display: block;
+    position: relative;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-right: 23px;
+    border: 2px solid $color-two;
+    border-radius: 50%;
+
+    &::before {
+      content: '';
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin-top: -4px;
+      margin-left: -4px;
+      border-radius: 50%;
+
+      background-color: $color-two;
+    }
   }
 
   &--login {
-
+    padding-right: 13%;
+    background-image: url("user.svg");
+    background-repeat: no-repeat;
+    background-position: 95% center;
   }
 
   &--pass {
-
+    padding-right: 13%;
+    background-image: url("lock.svg");
+    background-repeat: no-repeat;
+    background-position: 95% center;
   }
-
 
 }

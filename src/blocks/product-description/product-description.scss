@@ -26,4 +26,21 @@
     @extend %reset-ul;
   }
 
+  &__item {
+    position: relative;
+    padding-left: 21px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      margin-top: -4px;
+      background: $color-two;
+      transform: rotate(45deg);
+    }
+  }
+
 }
