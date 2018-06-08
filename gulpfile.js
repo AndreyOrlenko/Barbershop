@@ -3,6 +3,7 @@ const gulp = require('gulp'),
     debug = require('gulp-debug'),
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
+    babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     imgMin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
@@ -30,7 +31,7 @@ const gulp = require('gulp'),
 
 let isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 /*При таком условии будет генирироваться sourcemap,
-если нужно создать файл без него, в консоли запускаем ( set NODE_ENV=prodaction )
+если нужно создать файл без него, в консоли запускаем ( set NODE_ENV=prodaction , set NODE_ENV=development)
 */
 
 
@@ -173,6 +174,9 @@ gulp.task('js:build', function () {
       If(isDevelopment, sourcemaps.init()),
       include(),
       If(isDevelopment, sourcemaps.write()),
+      If(!isDevelopment, babel({
+        presets: ['env']
+      })),
       If(!isDevelopment, uglify()),
       cached('js'),
       gulp.dest(path.build.js)
@@ -187,7 +191,10 @@ gulp.task('js:build', function () {
 gulp.task('jsOther:build', function () {
   return combiner(
       gulp.src([path.src.jsAll, path.src.jsNotMain]),
-      If(!isDevelopment, uglify()), //сжимает js файлы, на prodiction
+      If(!isDevelopment, babel({
+        presets: ['env']
+      })),
+      If(!isDevelopment, uglify()),
       cached('jsAll'),
       debug({title: 'cached'}),
       gulp.dest(path.build.js),

@@ -1,18 +1,12 @@
-let login = document.querySelector('.user-navigation__link');
-let modalOverlayLogin = document.querySelector('.modal-overlay--login');
-let closeBtnLogin = modalOverlayLogin.querySelector('.modal__close');
+var login = document.querySelector('.user-navigation__link');
+var modalOverlayLogin = document.querySelector('.modal-overlay--login');
+var closeBtnLogin = modalOverlayLogin.querySelector('.modal__close');
 let modal = document.querySelector('.modal');
 let form = modal.querySelector('.form-login');
 let modalLogin = modalOverlayLogin.querySelector('.modal--login')
 let modalInputLogin = form.querySelector('.form-input--login');
 let modalInputPass = form.querySelector('.form-input--pass');
 let storage = localStorage.getItem('login');
-let linkMap = document.querySelector('.btn-js-map');
-let modalOverlayMap = document.querySelector('.modal-overlay--map');
-let closeBtnMap = modalOverlayMap.querySelector('.modal__close');
-
-
-
 
 login.addEventListener('click', function (evt) {
   evt.preventDefault();
@@ -45,7 +39,6 @@ closeBtnLogin.addEventListener('click', function (evt) {
   setTimeout(function() {modalOverlayLogin.classList.add('modal-overlay--hidden')}, 400);
 })
 
-
 window.addEventListener('keydown', function (evt) {
   if(evt.keyCode === 27) {
     if (!modalOverlayLogin.classList.contains('modal-overlay--hidden')){
@@ -57,6 +50,13 @@ window.addEventListener('keydown', function (evt) {
   }
 });
 
+
+
+
+
+let linkMap = document.querySelector('.btn-js-map');
+let modalOverlayMap = document.querySelector('.modal-overlay--map');
+let closeBtnMap = modalOverlayMap.querySelector('.modal__close');
 
 linkMap.addEventListener('click', function (evt) {
   evt.preventDefault();
